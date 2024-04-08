@@ -9,6 +9,8 @@ import {
   Inter_700Bold,
   useFonts
 } from "@expo-google-fonts/inter";
+import { Header } from "./components/header";
+import { StatusBar } from "expo-status-bar";
 
 export default function Layout() {
   const [fontsLoaded] = useFonts({
@@ -20,5 +22,11 @@ export default function Layout() {
 
   if (!fontsLoaded) return;
 
-  return <Slot />
+  return (
+    <>
+      <StatusBar style="light" />
+      <Header />
+      <Slot />
+    </>
+  );
 }
