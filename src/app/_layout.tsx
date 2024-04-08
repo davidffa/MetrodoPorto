@@ -1,7 +1,5 @@
 import "@/styles/global.css";
 
-import { Slot } from "expo-router";
-
 import {
   Inter_400Regular,
   Inter_500Medium,
@@ -9,8 +7,8 @@ import {
   Inter_700Bold,
   useFonts
 } from "@expo-google-fonts/inter";
-import { Header } from "./components/header";
 import { StatusBar } from "expo-status-bar";
+import { Stack } from 'expo-router/stack';
 
 export default function Layout() {
   const [fontsLoaded] = useFonts({
@@ -25,8 +23,9 @@ export default function Layout() {
   return (
     <>
       <StatusBar style="light" />
-      <Header />
-      <Slot />
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
     </>
   );
 }

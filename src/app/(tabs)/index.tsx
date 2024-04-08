@@ -1,7 +1,7 @@
 import { Alert, ScrollView, Text, View } from "react-native";
-import { Steps } from "./components/steps";
-import { LocationInput } from "./components/location_input";
-import { NextButton } from "./components/next-button";
+import { Steps } from "../components/steps";
+import { LocationInput } from "../components/location_input";
+import { NextButton } from "../components/next-button";
 import { useState } from "react";
 import MapView from "react-native-maps";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
