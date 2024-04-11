@@ -2,6 +2,8 @@ import { Button, Text, Touchable, TouchableOpacity, View, ScrollView } from "rea
 import { Ticket } from "../components/ticket";
 import { Passe } from "../components/passe";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import React from "react";
+import { Switchchoice } from "../components/switchchoice";
 
 
 export default function Tickets() {
@@ -18,6 +20,8 @@ export default function Tickets() {
                     <View className="w-full h-[1px] bg-blue-100 mt-2">
 
                     </View>
+
+                    <Switchchoice />
 
                     <Ticket type="Título Ocasional Z3" quantity={3} id="abc" />
                     <Ticket type="Título Ocasional Z4" quantity={2} id="def" />
