@@ -13,9 +13,10 @@ export default function ConfirmTicket() {
   const [total, setTotal] = useState(1.40);
 
   useEffect(() => {
-    setTotal(quantity * 1.40);
-    setSubtotal(Number((total / 1.23).toFixed(2)));
-    setIva(total - subtotal);
+    const tot = quantity * 1.40;
+    setTotal(tot);
+    setSubtotal(Number((tot / 1.23).toFixed(2)));
+    setIva(tot - Number((tot / 1.23).toFixed(2)));
   }, [quantity]);
 
   return (
