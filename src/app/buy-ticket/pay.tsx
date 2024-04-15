@@ -26,7 +26,7 @@ export default function Pay() {
       router.back();
     }
 
-    router.replace("/tickets");
+    router.replace("/tickets/");
   }
 
   return (

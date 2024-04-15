@@ -1,9 +1,7 @@
-import { Button, Text, Touchable, TouchableOpacity, View, ScrollView } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 import { Ticket } from "../components/ticket";
 import { Passe } from "../components/passe";
-import React from "react";
-import { Switchchoice } from "../components/switchchoice";
-
+import { SwitchChoice } from "../components/switchchoice";
 
 export default function Tickets() {
   return (
@@ -15,11 +13,12 @@ export default function Tickets() {
         </View>
 
 
-        <View className="w-full h-[1px] bg-blue-100 mt-2">
+        <View className="w-full h-[1px] bg-blue-100 mt-2 mb-4" />
 
-        </View>
-
-        <Switchchoice />
+        <SwitchChoice>
+          <SwitchChoice.Choice text="Bilhetes" isFirst active />
+          <SwitchChoice.Choice text="Passes" isLast />
+        </SwitchChoice>
 
         <Ticket type="Título Ocasional Z3" quantity={3} id="abc" />
         <Ticket type="Título Ocasional Z4" quantity={2} id="def" />
