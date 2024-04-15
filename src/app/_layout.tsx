@@ -8,7 +8,9 @@ import {
   useFonts
 } from "@expo-google-fonts/inter";
 import { StatusBar } from "expo-status-bar";
-import { Stack } from 'expo-router/stack';
+import { Tabs } from "expo-router";
+import { Feather, Fontisto, Ionicons } from "@expo/vector-icons";
+import { Header } from "./components/header";
 
 export default function Layout() {
   const [fontsLoaded] = useFonts({
@@ -23,9 +25,45 @@ export default function Layout() {
   return (
     <>
       <StatusBar style="light" />
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
+      <Tabs screenOptions={{ tabBarActiveTintColor: '#1E40AF' }}>
+        <Tabs.Screen
+          name="index"
+          redirect
+        />
+        <Tabs.Screen
+          name="buy-ticket"
+          options={{
+            tabBarIcon: ({ color }) => <Feather name="map" size={28} color={color} />,
+            header: () => <Header />,
+            tabBarLabel: () => null
+          }}
+        />
+        <Tabs.Screen
+          name="tickets"
+          options={{
+            tabBarIcon: ({ color }) => <Ionicons name="ticket-outline" size={28} color={color} />,
+            header: () => <Header />,
+            tabBarLabel: () => null
+          }}
+        />
+        <Tabs.Screen
+          name="train"
+          options={{
+            tabBarIcon: ({ color }) => <Fontisto name="train" size={28} color={color} />,
+            header: () => <Header />,
+            tabBarLabel: () => null
+          }}
+        />
+        <Tabs.Screen
+          name="settings"
+          // component={Menu}
+          options={{
+            tabBarIcon: ({ color }) => <Feather name="menu" size={28} color={color} />,
+            header: () => <Header />,
+            tabBarLabel: () => null
+          }}
+        />
+      </Tabs>
     </>
   );
 }
