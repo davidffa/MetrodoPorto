@@ -2,8 +2,19 @@ import { Text, View, ScrollView } from "react-native";
 import { Ticket } from "../components/ticket";
 import { Passe } from "../components/passe";
 import { SwitchChoice } from "../components/switchchoice";
+import { useRouter } from "expo-router";
 
 export default function Tickets() {
+  const router = useRouter();
+
+  function usePass(id: string) {
+    router.push({ pathname: "/tickets/use-ticket", params: { id } });
+  }
+
+  function managePass() {
+
+  }
+
   return (
 
     <ScrollView className="flex-1">
@@ -22,9 +33,9 @@ export default function Tickets() {
 
         <Ticket type="Título Ocasional Z3" quantity={3} id="abc" />
         <Ticket type="Título Ocasional Z4" quantity={2} id="def" />
-        <Passe type="Passe Normal" expireDate="Expira em 4 dias" />
-        <Passe type="Passe Estudante" />
-        <Passe type="Passe Senior" />
+        <Passe type="Passe Normal" expireDate="Expira em 4 dias" usePass={usePass} managePass={managePass} />
+        <Passe type="Passe Estudante" usePass={usePass} managePass={managePass} />
+        <Passe type="Passe Senior" usePass={usePass} managePass={managePass} />
         <Ticket type="Título Ocasional Z3" quantity={3} id="abc" />
         <Ticket type="Título Ocasional Z4" quantity={2} id="def" />
 
