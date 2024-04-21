@@ -11,8 +11,8 @@ export default function Tickets() {
     router.push({ pathname: "/tickets/use-ticket", params: { id } });
   }
 
-  function managePass() {
-
+  function managePass(id: string) {
+    router.push({ pathname: "/tickets/manage-ticket", params: { id } });
   }
 
   return (

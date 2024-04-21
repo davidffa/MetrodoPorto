@@ -12,7 +12,7 @@ export default function UseTicket() {
 
 
         <View className="bg-white flex-1 flex-row w-full">
-            <Feather name="arrow-left" size={24} onPress={() => router.back()} />
+            <Feather name="arrow-left" style={{ position: 'absolute', top: 50, left: 20, zIndex: 1 }} size={30} color='white' onPress={() => router.back()} />
             <View className="bg-blue-600 flex-1 items-center justify-center">
 
 
