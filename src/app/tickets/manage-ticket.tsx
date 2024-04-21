@@ -5,15 +5,16 @@ import { TouchableOpacity } from "react-native";
 
 
 
+
 export default function ManageTicket() {
     const { id } = useLocalSearchParams();
     const router = useRouter();
 
-    function usePass(id: string) {
+    function usePass() {
         router.push({ pathname: "/tickets/use-ticket", params: { id } });
       }
     
-      function renovatePass(id: string) {
+      function renovatePass() {
         router.push({ pathname: "/tickets/renovate-pass", params: { id } });
       }
 

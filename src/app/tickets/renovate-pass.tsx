@@ -2,15 +2,19 @@ import { Feather } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native";
-import Steps from "../components/steps";
+import { Steps } from "../components/steps";
 
 
 
 export default function RenovateTicket() {
 
-    
+
     const { id } = useLocalSearchParams();
     const router = useRouter();
+
+    function Pay() {
+        router.push( { pathname:  "/tickets/payment"} )
+    }
 
     return (
         <View className="items-center justify-center mt-4 p-8" >
@@ -18,13 +22,13 @@ export default function RenovateTicket() {
             <View className="flex-row gap-6 w-full">
 
                 <Feather name="arrow-left" size={30} color='grey' onPress={() => router.back()} />
-                <Steps>
-                    <Steps.Full />
-                    <Steps.Empty />
-                    <Steps.Empty />
-                </Steps>
+
 
                 <Text className="font-bold text-3xl text-slate-600">Renovar pass</Text>
+                <Steps>
+                    <Steps.Full/>
+                    <Steps.Empty/>
+                </Steps>
             </View>
             <View className="w-full h-[1px] bg-blue-100 mt-2 mb-4" />
             <View className="items-center justify-center w-full py-20">
@@ -41,7 +45,7 @@ export default function RenovateTicket() {
                             Cancelar
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1 }} className="bg-green-700 px-5 py-2 rounded-md">
+                    <TouchableOpacity style={{ flex: 1 }} className="bg-green-700 px-5 py-2 rounded-md" onPress={() => router.push({ pathname: "/buy-ticket/pay" })}>
                         <Text className="font-bold text-white text-xl text-center">
                             Renovar
                         </Text>
