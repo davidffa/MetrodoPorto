@@ -1,11 +1,13 @@
 import { Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import { LineName, Line } from "../components/linename";
+import { router, useRouter } from "expo-router";
 
 const lines: Line[] = ['A', 'B', 'C', 'D', 'E', 'F']
 
 export default function Train() {
-  function goNext() {
-
+  const router = useRouter();
+  function goNext(name: Line) {
+    router.push({ pathname: '/train/stations_table', params: { line: name } })
   }
 
   return (
@@ -17,10 +19,9 @@ export default function Train() {
 
       <View className="flex-1 justify-center gap-8">
         {
-          lines.map(name => <LineName key={name} line={name} />)
+          lines.map(name => <LineName orientation="right" key={name} line={name} onPress={() => goNext(name)} />)
         }
       </View>
-
     </View>
   )
 }
