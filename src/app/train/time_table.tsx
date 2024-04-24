@@ -12,11 +12,15 @@ export default function TableTrain() {
         router.push({ pathname: '/train/stations_table', params: { line: params.line } })
     }
 
+    function goBack() {
+        router.push('/train/')
+    }
+
     return (
         <View className="items-center p-8 flex-1">
             <View className="flex-row justify-center gap-8">
                 {
-                    <LineName orientation="left" key={params.line as Line} line={params.line as Line} onPress={() => router.back()} />
+                    <LineName orientation="left" key={params.line as Line} line={params.line as Line} onPress={() => goBack()} />
                 }
             </View>
             <View className="p-8">

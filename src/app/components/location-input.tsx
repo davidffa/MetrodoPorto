@@ -2,7 +2,7 @@ import { Platform, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import RNPickerSelect from "react-native-picker-select";
 import { locations } from "@/utils/locations";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 type Props = {
   placeholder: string;

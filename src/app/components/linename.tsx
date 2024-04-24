@@ -1,5 +1,5 @@
 import { Feather } from "@expo/vector-icons";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 
 export type Line = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
@@ -14,7 +14,7 @@ export function LineName({ line, orientation, ...rest }: Props) {
         return (
 
             <TouchableOpacity
-                className={clsx("bg-white w-full border items-center justify-between rounded-md flex-row", {
+                className={clsx("bg-white w-full border items-center justify-between rounded-lg flex-row", {
                     "border-blue-500": line === 'A',
                     "border-red-500": line === 'B',
                     "border-green-600": line === 'C',
@@ -44,7 +44,7 @@ export function LineName({ line, orientation, ...rest }: Props) {
     return (
 
         <TouchableOpacity
-            className={clsx("bg-white w-full border items-center justify-between rounded-md flex-row", {
+            className={clsx("bg-white w-full border items-center rounded-lg flex-row", {
                 "border-blue-500": line === 'A',
                 "border-red-500": line === 'B',
                 "border-green-600": line === 'C',
@@ -55,7 +55,7 @@ export function LineName({ line, orientation, ...rest }: Props) {
             activeOpacity={0.7}
             {...rest}
         >
-            <View className={clsx("rounded-r-md", {
+            <View className={clsx("rounded-l-md", {
                 "bg-blue-500": line === 'A',
                 "bg-red-500": line === 'B',
                 "bg-green-600": line === 'C',
@@ -64,6 +64,7 @@ export function LineName({ line, orientation, ...rest }: Props) {
                 "bg-orange-500": line === 'F'
             })}>
                 <Feather name="chevron-left" size={52} color="white" />
+
             </View>
             <Text className="text-slate-600 font-semibold text-3xl ml-8">Linha {line}</Text>
 
