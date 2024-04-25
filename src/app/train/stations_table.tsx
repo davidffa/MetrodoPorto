@@ -8,8 +8,6 @@ export default function StationTrain() {
   const params = useLocalSearchParams();
   const router = useRouter();
 
-  console.log(params)
-
   function goNext() {
 
     router.push({ pathname: '/train/time_table', params: { line: params.line } })
@@ -27,17 +25,14 @@ export default function StationTrain() {
           <LineName orientation="left" key={params.line as Line} line={params.line as Line} onPress={() => goBack()} />
         }
       </View>
-      <View className="mt-6 mb-4">
+      <View className="mt-6 mb-12">
         <SwitchChoice>
           <SwitchChoice.Choice line={params.line as Line} text="Estações" isFirst active />
           <SwitchChoice.Choice line={params.line as Line} text="Horários" isLast onPress={() => goNext()} />
         </SwitchChoice>
       </View>
-      <View>
-        <StationLines line={params.line as Line}></StationLines>
-      </View>
 
-
+      <StationLines line={params.line as Line}></StationLines>
     </View>
   )
 }
