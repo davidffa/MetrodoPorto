@@ -29,12 +29,10 @@ export function StationLines({ line }: { line: Line }) {
                 "bg-orange-500": line === 'F'
               })} />
               <Text className="text-slate-800 font-medium font-regular">{name}</Text>
-
             </View>
           ))
         }
       </View>
-
     </ScrollView >
   );
 }

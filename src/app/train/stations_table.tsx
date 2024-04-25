@@ -10,12 +10,15 @@ export default function StationTrain() {
 
   function goNext() {
 
-    router.push({ pathname: '/train/time_table', params: { line: params.line } })
+    router.replace({ pathname: '/train/time_table', params: { line: params.line } })
   }
 
   function goBack() {
+    while (router.canGoBack()) {
+      router.back();
+    }
 
-    router.push('/train/')
+    router.replace('/train/')
   }
 
   return (
