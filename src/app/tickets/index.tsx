@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
-import { Feather } from "@expo/vector-icons";
+import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { Ticket } from "../components/ticket";
 import { Passe } from "../components/passe";
@@ -16,7 +16,7 @@ export default function Tickets() {
   }
 
   function managePass(id: string) {
-    router.push({ pathname: "/tickets/manage-ticket", params: { id } });
+    router.push({ pathname: "/tickets/manage-pass", params: { id } });
   }
 
   return (
@@ -55,14 +55,23 @@ export default function Tickets() {
       </View>
 
       {
-        activeTab === "pass" && (
-          <TouchableOpacity
-            className="absolute bottom-10 right-10 bg-white rounded-full p-5 border border-blue-800"
-            onPress={() => router.push({ pathname: "/tickets/create-pass" })}
-          >
-            <Feather name="plus" size={30} color="blue" />
-          </TouchableOpacity>
-        )
+        activeTab === "tickets" ?
+          (
+            <TouchableOpacity
+              className="absolute bottom-10 right-10 bg-white rounded-full p-4 border border-blue-800"
+              onPress={() => router.push({ pathname: "/tickets/ticket-history" })}
+            >
+              <MaterialCommunityIcons name="history" size={34} color="blue" />
+            </TouchableOpacity>
+          ) :
+          (
+            <TouchableOpacity
+              className="absolute bottom-10 right-10 bg-white rounded-full p-5 border border-blue-800"
+              onPress={() => router.push({ pathname: "/tickets/create-pass" })}
+            >
+              <Feather name="plus" size={30} color="blue" />
+            </TouchableOpacity>
+          )
       }
     </View>
   )
