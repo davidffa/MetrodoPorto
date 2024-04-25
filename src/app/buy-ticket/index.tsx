@@ -13,7 +13,7 @@ export default function Home() {
   const router = useRouter();
 
   function goNext() {
-    router.push('/buy-ticket/confirm-ticket');
+    router.push({ pathname: '/buy-ticket/confirm-ticket', params: { zone: 'Z2' } });
   }
 
   return (

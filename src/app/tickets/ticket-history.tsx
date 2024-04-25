@@ -9,6 +9,11 @@ export default function TicketHistory() {
 
   function buyAgain(id: string) {
     console.log("Buy again " + id);
+    const usedTicket = usedTickets.find(t => t.id === id)!;
+
+    const zone = usedTicket.type.split(" ").pop()!;
+
+    router.push({ pathname: '/buy-ticket/confirm-ticket', params: { zone } })
   }
 
   return (
