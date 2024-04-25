@@ -48,7 +48,7 @@ export default function Tickets() {
               (
                 <>
                   {
-                    passes.map(pass => <Passe id={pass.id} expireDate={pass.expireDate} type={pass.name} usePass={useTicket} managePass={managePass} />)
+                    passes.map(pass => <Passe key={pass.id} id={pass.id} expireDate={pass.expireDate} type={pass.name} usePass={useTicket} managePass={managePass} />)
                   }
                 </>
               )
