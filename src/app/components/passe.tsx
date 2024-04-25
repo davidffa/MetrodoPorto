@@ -1,14 +1,18 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import dayjs from "dayjs";
 
 type PassProps = {
+  id: string;
   type: string;
   expireDate?: string;
   usePass: (id: string) => void;
   managePass: (id: string) => void;
 }
 
-export function Passe({ type, expireDate, usePass, managePass }: PassProps) {
+export function Passe({ id, type, expireDate, usePass, managePass }: PassProps) {
+  const diff = dayjs(expireDate).diff(dayjs(), 'days');
+
   return (
     <View className="px-5 py-8 border border-blue-800 rounded-md bg-white w-full mt-4 flex-row justify-between items-center" >
       <View className="gap-3">
@@ -16,12 +20,12 @@ export function Passe({ type, expireDate, usePass, managePass }: PassProps) {
           {type}
         </Text>
         {
-          expireDate && (
+          diff < 10 && (
             <View className="flex-row items-center gap-1">
               <Ionicons name="warning-outline" size={20} color="orange" />
 
               <Text className="font-regular text-xs text-slate-800">
-                {expireDate}
+                Expira em {diff} dias
               </Text>
             </View>
           )
@@ -29,12 +33,12 @@ export function Passe({ type, expireDate, usePass, managePass }: PassProps) {
       </View>
 
       <View className="flex-row gap-1">
-        <TouchableOpacity className="bg-green-800 items-center justify-center px-6 py-3 rounded-md" onPress={() => managePass("abc")}>
+        <TouchableOpacity className="bg-green-800 items-center justify-center px-6 py-3 rounded-md" onPress={() => managePass(id)}>
           <Text className="font-bold text-white text-l">
             Gerir
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-blue-800 items-center justify-center px-6 py-3 rounded-md" onPress={() => usePass("abc")}>
+        <TouchableOpacity className="bg-blue-800 items-center justify-center px-6 py-3 rounded-md" onPress={() => usePass(id)}>
           <Text className="font-bold text-white text-l">
             Usar
           </Text>

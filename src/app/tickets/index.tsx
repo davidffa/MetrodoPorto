@@ -6,6 +6,7 @@ import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ticket } from "../components/ticket";
 import { Passe } from "../components/passe";
 import { SwitchChoice } from "../components/switchchoice";
+import { passes } from "@/utils/passes";
 
 export default function Tickets() {
   const router = useRouter();
@@ -46,8 +47,9 @@ export default function Tickets() {
               ) :
               (
                 <>
-                  <Passe type="Passe Normal" expireDate="Expira em 4 dias" usePass={useTicket} managePass={managePass} />
-                  <Passe type="Passe Estudante" usePass={useTicket} managePass={managePass} />
+                  {
+                    passes.map(pass => <Passe id={pass.id} expireDate={pass.expireDate} type={pass.name} usePass={useTicket} managePass={managePass} />)
+                  }
                 </>
               )
           }
