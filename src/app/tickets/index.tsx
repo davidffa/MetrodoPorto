@@ -11,7 +11,7 @@ export default function Tickets() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<'pass' | 'tickets'>("tickets");
 
-  function usePass(id: string) {
+  function useTicket(id: string) {
     router.push({ pathname: "/tickets/use-ticket", params: { id } });
   }
 
@@ -20,42 +20,39 @@ export default function Tickets() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <ScrollView style={{ flex: 1 }}>
-        <View className="items-center justify-center mt-4 p-8">
-          <View className="flex-row justify-between w-full">
-            <Text className="font-bold text-3xl text-slate-600">Bilhetes e Passes</Text>
-          </View>
+    <View className="flex-1">
+      <View className="items-center justify-center mt-4 p-8">
+        <View className="flex-row justify-between w-full">
+          <Text className="font-bold text-3xl text-slate-600">Bilhetes e Passes</Text>
+        </View>
 
-          <View className="w-full h-[1px] bg-blue-100 mt-2 mb-4" />
+        <View className="w-full h-[1px] bg-blue-100 mt-2 mb-4" />
 
-          <SwitchChoice>
-            <SwitchChoice.Choice text="Bilhetes" isFirst active={activeTab === 'tickets'} onPress={() => setActiveTab("tickets")} />
-            <SwitchChoice.Choice text="Passes" isLast active={activeTab === "pass"} onPress={() => setActiveTab("pass")} />
-          </SwitchChoice>
+        <SwitchChoice>
+          <SwitchChoice.Choice text="Bilhetes" isFirst active={activeTab === 'tickets'} onPress={() => setActiveTab("tickets")} />
+          <SwitchChoice.Choice text="Passes" isLast active={activeTab === "pass"} onPress={() => setActiveTab("pass")} />
+        </SwitchChoice>
 
+        <ScrollView className="mt-4" showsVerticalScrollIndicator={false}>
           {
             activeTab === "tickets" ?
               (
                 <>
-
-                  <Ticket type="Título Ocasional Z3" quantity={3} id="abc" />
-                  <Ticket type="Título Ocasional Z4" quantity={2} id="def" />
-                  <Ticket type="Título Ocasional Z3" quantity={3} id="abc" />
-                  <Ticket type="Título Ocasional Z4" quantity={2} id="def" />
+                  <Ticket type="Título Ocasional Z2" quantity={3} id="XYZ123456789" useTicket={useTicket} />
+                  <Ticket type="Título Ocasional Z3" quantity={2} id="ABC123456789" useTicket={useTicket} />
+                  <Ticket type="Título Ocasional Z4" quantity={3} id="QWE123456789" useTicket={useTicket} />
+                  <Ticket type="Título Ocasional Z5" quantity={2} id="ASD123456789" useTicket={useTicket} />
                 </>
               ) :
               (
                 <>
-                  <Passe type="Passe Normal" expireDate="Expira em 4 dias" usePass={usePass} managePass={managePass} />
-                  <Passe type="Passe Estudante" usePass={usePass} managePass={managePass} />
-                  <Passe type="Passe Senior" usePass={usePass} managePass={managePass} />
+                  <Passe type="Passe Normal" expireDate="Expira em 4 dias" usePass={useTicket} managePass={managePass} />
+                  <Passe type="Passe Estudante" usePass={useTicket} managePass={managePass} />
                 </>
               )
           }
-
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
 
       {
         activeTab === "pass" && (

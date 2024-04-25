@@ -20,29 +20,21 @@ export function Passe({ type, expireDate, usePass, managePass }: PassProps) {
             <View className="flex-row items-center gap-1">
               <Ionicons name="warning-outline" size={20} color="orange" />
 
-
               <Text className="font-regular text-xs text-slate-800">
-
-
-
                 {expireDate}
               </Text>
-
             </View>
           )
         }
       </View>
 
       <View className="flex-row gap-1">
-
         <TouchableOpacity className="bg-green-800 items-center justify-center px-6 py-3 rounded-md" onPress={() => managePass("abc")}>
-
           <Text className="font-bold text-white text-l">
             Gerir
           </Text>
         </TouchableOpacity>
         <TouchableOpacity className="bg-blue-800 items-center justify-center px-6 py-3 rounded-md" onPress={() => usePass("abc")}>
-
           <Text className="font-bold text-white text-l">
             Usar
           </Text>
