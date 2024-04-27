@@ -24,9 +24,7 @@ export default function StationTrain() {
   return (
     <View className="items-center p-8 flex-1">
       <View className="flex-row justify-center gap-8">
-        {
-          <LineName orientation="left" key={params.line as Line} line={params.line as Line} onPress={() => goBack()} />
-        }
+        <LineName orientation="left" line={params.line as Line} onPress={() => goBack()} />
       </View>
       <View className="mt-6 mb-12">
         <SwitchChoice>
