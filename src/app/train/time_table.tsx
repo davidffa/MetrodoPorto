@@ -57,7 +57,7 @@ export default function TableTrain() {
 
                 <View className="mt-6 mb-12">
                     <View className="w-full flex-row">
-                        <View className={clsx("w-[40%] mt-[20px] items-center border ", {
+                        <View className={clsx("w-[50%] mt-[20px] items-center border ", {
                             "bg-blue-100": line === 'A',
                             "bg-red-100": line === 'B',
                             "bg-green-200": line === 'C',
@@ -79,7 +79,7 @@ export default function TableTrain() {
                                 ))
                             }
                         </View>
-                        <View className="w-[60%]">
+                        <View className="w-[50%]">
                             <TableTimer
                                 line={line}
                                 headerleft='Primeira'
@@ -90,9 +90,9 @@ export default function TableTrain() {
                         </View>
                     </View>
                 </View>
-
-                <Text className="text-2xl font-semibold">Sábados, Domingos e Feriados:</Text>
-
+                <View className="w-full items-center">
+                    <Text className="text-2xl font-semibold">Sábados, Domingos e Feriados:</Text>
+                </View>
                 <View className="mt-6 mb-12">
                     <View className="w-full flex-row">
                         <TableTimer
