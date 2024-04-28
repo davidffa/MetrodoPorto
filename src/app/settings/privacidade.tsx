@@ -9,14 +9,15 @@ export default function Privacidade() {
 
     return (
         <View className=" px-8 pt-8 flex-1">
-            <View className="flex-row justify w-full mt-8">
+            <View className="flex-row justify w-full">
                 <Feather name="arrow-left" size={32} color="#475569" onPress={() => router.back()} />
                 <Text className="font-bold text-3xl text-slate-600"> Política de Privacidade</Text>
             </View>
 
             <View className="w-full h-[1px] bg-blue-100 mt-2 mb-2" />
 
-            <ScrollView>
+            <ScrollView className="mt-4">
+
                 <Text className="text-xl">1. PROTEÇÃO DE DADOS PESSOAIS</Text>
 
                 <Text>A Metro do Porto, S.A. (“MdP”), com sede em Avenida Fernão Magalhães 1862, 7.º, 4350-158 Porto, com número único de pessoa coletiva e de matrícula 503278602, matriculada na Conservatória de Registo Comercial do Porto, com o capital social de 8 517 540 euros (oito milhões e quinhentos e dezassete mil quinhentos e quarenta euros), procede ao tratamento de dados pessoais no âmbito da sua atividade, como melhor se descreverá adiante, para que compreenda de que forma os seus dados pessoais são utilizados.

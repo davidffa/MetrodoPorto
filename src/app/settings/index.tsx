@@ -10,7 +10,7 @@ export default function Settings() {
 
     return (
         <View className=" p-8 flex-1">
-            <View className="flex-row justify-between w-full mt-8">
+            <View className="flex-row justify-between w-full ">
                 <Text className="font-bold text-4xl text-slate-600">Mais</Text>
             </View>
 
