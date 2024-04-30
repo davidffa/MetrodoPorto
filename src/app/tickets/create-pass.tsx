@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Alert } from "react-native";
+import { Picker } from "@react-native-picker/picker";
+import * as DocumentPicker from "expo-document-picker";
+
 import { Steps } from "../components/steps";
 import { NextButton } from "../components/next-button";
 import { FormInput } from '../components/form-input';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Picker } from "@react-native-picker/picker";
-import * as DocumentPicker from "expo-document-picker";
+
+const NAME_REGEX = /^[a-zA-Z ]+$/;
+const PHONE_REGEX = /^[\d]{9}$/;
+const EMAIL_REGEX = /^.+@.+\.[A-Za-z]+$/;
 
 export default function CreatePass() {
   const router = useRouter();
@@ -30,6 +35,30 @@ export default function CreatePass() {
 
     setFile(asset.uri);
     setFileName(asset.name);
+  }
+
+  function handleCreatePass() {
+    if (name.trim().length === 0) {
+      return Alert.alert("Erro", "Nome vazio!");
+    }
+
+    if (!name.match(NAME_REGEX)) {
+      return Alert.alert("Erro", "O nome apenas pode conter caracteres alfabéticos");
+    }
+
+    if (!email.match(EMAIL_REGEX)) {
+      return Alert.alert("Erro", "Formato de email inválido!");
+    }
+
+    if (!telephone.match(PHONE_REGEX)) {
+      return Alert.alert("Erro", "Formato de telefone inválido!");
+    }
+
+    if (selectedType === "estudante" && !file) {
+      return Alert.alert("Erro", "Por favor, anexe um comprovativo de estudante");
+    }
+
+    router.push({ pathname: "/tickets/payment", params: { total: selectedType === "estudante" ? 30 : 40, successMessage: "Passe criado com sucesso!" } });
   }
 
   return (
@@ -67,17 +96,23 @@ export default function CreatePass() {
           <FormInput
             name="Nome"
             placeholder="Nome"
+            value={name}
+            onChangeText={setName}
           />
           <FormInput
             name="Email"
             placeholder="Email"
             keyboardType="email-address"
+            value={email}
+            onChangeText={setEmail}
           />
           <FormInput
             name="Telefone"
             placeholder="Telefone"
             keyboardType="numeric"
             maxLength={9}
+            value={telephone}
+            onChangeText={setTelephone}
           />
 
           {
@@ -105,7 +140,7 @@ export default function CreatePass() {
           }
 
           <View className="mt-4 w-full">
-            <NextButton onPress={() => { }} />
+            <NextButton onPress={handleCreatePass} />
           </View>
         </View>
       </ScrollView>

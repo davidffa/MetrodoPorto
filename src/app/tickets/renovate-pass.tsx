@@ -15,7 +15,7 @@ export default function RenovatePass() {
   const router = useRouter();
 
   function pay() {
-    router.push({ pathname: "/tickets/payment", params: { total: pass.value } })
+    router.push({ pathname: "/tickets/payment", params: { total: pass.value, successMessage: "Passe renovado com sucesso!" } })
   }
 
   return (

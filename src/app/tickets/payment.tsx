@@ -13,7 +13,7 @@ export default function Payment() {
   const [selectedPayment, setSelectedPayment] = useState("MBWay");
 
   function fakePayment() {
-    Alert.alert("Sucesso", "Passe renovado com sucesso!");
+    Alert.alert("Sucesso", params.successMessage as string);
 
     // Reset navigation history
     while (router.canGoBack()) {
