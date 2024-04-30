@@ -55,8 +55,7 @@ export default function Layout() {
           }}
         />
         <Tabs.Screen
-          name="settings"
-          // component={Menu}
+          name="more"
           options={{
             tabBarIcon: ({ color }) => <Feather name="menu" size={28} color={color} />,
             header: () => <Header />,
