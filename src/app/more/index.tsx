@@ -1,56 +1,62 @@
 import { Feather } from "@expo/vector-icons";
 import { Text, View, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
-import { Linking } from 'react-native'
-
+import { Linking } from "react-native";
+import { MoreOption } from "../components/more-option";
 
 export default function More() {
   const router = useRouter();
 
   return (
-    <View className=" p-8 flex-1">
+    <View className="p-8 flex-1">
       <View className="w-full">
         <Text className="font-bold text-4xl text-slate-600">Mais</Text>
       </View>
 
       <View className="w-full h-[1px] bg-blue-100 mt-2 mb-2" />
 
-      <View className="flex-1 my-6 justify-between">
-
-        <TouchableOpacity className="flex-row items-center border border-blue-100 bg-blue-100 rounded-lg" onPress={() => (router.push('/more/informacoes'))} >
-          <Feather name="info" size={48} />
-          <Text className="font-bold text-2xl text-black">  Informações</Text>
-        </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center border border-blue-100  bg-blue-100 rounded-lg" onPress={() => Linking.openURL('https://www.metrodoporto.pt')}>
-          <Feather name="globe" size={48} />
-          <Text className="font-bold text-2xl text-black">  Website</Text>
-        </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center border border-blue-100  bg-blue-100 rounded-lg" onPress={() => Linking.openURL('https://www.metrodoporto.pt/pages/761')}>
-          <Feather name="monitor" size={48} />
-          <Text className="font-bold text-2xl text-black">  Quiosques</Text>
-        </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center border border-blue-100  bg-blue-100 rounded-lg" onPress={() => (router.push('/more/criticas'))}>
-          <Feather name="message-circle" size={48} />
-          <Text className="font-bold text-2xl text-black">  Críticas/Sugestões</Text>
-        </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center border border-blue-100  bg-blue-100 rounded-lg" onPress={() => (router.push('/more/recuperar'))}>
-          <Feather name="archive" size={48} />
-          <Text className="font-bold text-2xl text-black">  Recuperar Passes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center border border-blue-100  bg-blue-100 rounded-lg" onPress={() => (router.push('/more/privacidade'))}>
-          <Feather name="paperclip" size={48} />
-          <Text className="font-bold text-2xl text-black">  Política de Privacidade</Text>
-        </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center border border-blue-100  bg-blue-100 rounded-lg" onPress={() => (router.push('/more/contactos'))}>
-          <Feather name="phone" size={48} />
-          <Text className="font-bold text-2xl text-black">  Contactos</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity className="flex-row items-center border border-blue-100  bg-blue-100 rounded-lg" onPress={() => (router.push('/more/definicoes'))}>
-          <Feather name="settings" size={48} />
-          <Text className="font-bold text-2xl text-black">  Definições</Text>
-        </TouchableOpacity>
+      <View className="flex-1 my-6 gap-4">
+        <MoreOption
+          name="Informações"
+          icon={<Feather name="info" size={28} />}
+          onPress={() => router.push("/more/informacoes")}
+        />
+        <MoreOption
+          name="Website"
+          icon={<Feather name="globe" size={28} />}
+          onPress={() => Linking.openURL("https://www.metrodoporto.pt")}
+        />
+        <MoreOption
+          name="Quiosques"
+          icon={<Feather name="monitor" size={28} />}
+          onPress={() => Linking.openURL("https://www.metrodoporto.pt/pages/761")}
+        />
+        <MoreOption
+          name="Críticas/Sugestões"
+          icon={<Feather name="message-circle" size={28} />}
+          onPress={() => (router.push("/more/criticas"))}
+        />
+        <MoreOption
+          name="Recuperar Passes"
+          icon={<Feather name="archive" size={28} />}
+          onPress={() => (router.push("/more/recuperar"))}
+        />
+        <MoreOption
+          name="Política de Privacidade"
+          icon={<Feather name="paperclip" size={28} />}
+          onPress={() => (router.push("/more/privacidade"))}
+        />
+        <MoreOption
+          name="Contactos"
+          icon={<Feather name="phone" size={28} />}
+          onPress={() => (router.push("/more/contactos"))}
+        />
+        <MoreOption
+          name="Definições"
+          icon={<Feather name="settings" size={28} />}
+          onPress={() => (router.push("/more/settings"))}
+        />
       </View>
-    </View >
+    </View>
   )
 }
