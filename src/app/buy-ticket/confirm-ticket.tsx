@@ -1,12 +1,14 @@
 import { NextButton } from "@/app/components/next-button";
 import { Steps } from "@/app/components/steps";
 import { Feather } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 
 export default function ConfirmTicket() {
   const router = useRouter();
+  const params = useLocalSearchParams();
+
   const [quantity, setQuantity] = useState(1);
   const [subtotal, setSubtotal] = useState(1.14);
   const [iva, setIva] = useState(0.26);
@@ -41,7 +43,7 @@ export default function ConfirmTicket() {
           </View>
           <View className="flex-row">
             <Text className="font-semibold text-lg">Zona: </Text>
-            <Text className="font-regular text-lg">Z2</Text>
+            <Text className="font-regular text-lg">{params.zone}</Text>
           </View>
           <View className="flex-row">
             <Text className="font-semibold text-lg">Valor (com IVA): </Text>

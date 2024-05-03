@@ -7,13 +7,13 @@ import { PayButton } from "../components/pay-button";
 import { useState } from "react";
 import { paymentMethods } from "@/utils/payment-methods";
 
-export default function Pay() {
+export default function Payment() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const [selectedPayment, setSelectedPayment] = useState("MBWay");
 
   function fakePayment() {
-    Alert.alert("Sucesso", "Pagamento realizado com sucesso!");
+    Alert.alert("Sucesso", params.successMessage as string);
 
     // Reset navigation history
     while (router.canGoBack()) {
@@ -28,7 +28,6 @@ export default function Pay() {
       <View className="items-center justify-between flex-row">
         <Feather name="arrow-left" size={24} onPress={() => router.back()} />
         <Steps>
-          <Steps.Full />
           <Steps.Full />
           <Steps.Full />
         </Steps>
@@ -47,7 +46,7 @@ export default function Pay() {
         </View>
 
         <View className="items-end">
-          <Text className="items-end font-bold text-2xl">Total: {params.total}€</Text>
+          <Text className="items-end font-bold text-2xl">Total: {Number(params.total).toFixed(2)}€</Text>
         </View>
 
         <PayButton onPress={fakePayment} />
