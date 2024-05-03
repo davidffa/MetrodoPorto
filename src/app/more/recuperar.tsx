@@ -2,7 +2,7 @@ import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { View, Text, TouchableOpacity, Alert, ScrollView, TextInput } from "react-native";
 import { FormInput } from '../components/form-input';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import clsx from "clsx";
 
@@ -10,6 +10,9 @@ export default function Recuperar() {
   const router = useRouter();
   const [codeSent, setCodeSent] = useState(false);
   const [remaining, setRemaining] = useState(0);
+  const [code, setCode] = useState<string[]>([]);
+
+  const codeRef = Array(6).fill(0).map(_ => useRef<TextInput>(null));
 
   useEffect(() => {
     if (remaining === 0) return;
@@ -19,6 +22,20 @@ export default function Recuperar() {
         setRemaining(remaining - 1);
     }, 1000);
   }, [remaining]);
+
+  function handleCodeChange(digit: string, index: number) {
+    if (index < 5) {
+      codeRef[index + 1].current!.focus();
+    } else {
+      codeRef[index].current!.blur();
+    }
+
+    setCode(prev => {
+      const newCode = [...prev];
+      newCode[index] = digit;
+      return newCode;
+    })
+  }
 
   function sendCode() {
     Alert.alert("Sucesso", "O código foi enviado com sucesso!");
@@ -85,12 +102,19 @@ export default function Recuperar() {
                   <Text className="text-xl text-center">Insira o código enviado</Text>
                 </View>
                 <View className="flex-row justify-center mb-6 gap-1">
-                  <TextInput className="bg-white p-2 w-8 text-center rounded-md border border-zinc-300" keyboardType="numeric" maxLength={1} />
-                  <TextInput className="bg-white p-2 w-8 text-center rounded-md border border-zinc-300" keyboardType="numeric" maxLength={1} />
-                  <TextInput className="bg-white p-2 w-8 text-center rounded-md border border-zinc-300" keyboardType="numeric" maxLength={1} />
-                  <TextInput className="bg-white p-2 w-8 text-center rounded-md border border-zinc-300" keyboardType="numeric" maxLength={1} />
-                  <TextInput className="bg-white p-2 w-8 text-center rounded-md border border-zinc-300" keyboardType="numeric" maxLength={1} />
-                  <TextInput className="bg-white p-2 w-8 text-center rounded-md border border-zinc-300" keyboardType="numeric" maxLength={1} />
+                  {
+                    Array(6).fill(0).map((_, i) => (
+                      <TextInput
+                        key={i}
+                        value={code[i]}
+                        onChangeText={(digit) => handleCodeChange(digit, i)}
+                        ref={codeRef[i]}
+                        className="bg-white p-2 w-8 text-center rounded-md border border-zinc-300"
+                        keyboardType="numeric"
+                        maxLength={1}
+                      />
+                    ))
+                  }
                 </View>
 
                 <View className="items-center gap-6 justify-center">
