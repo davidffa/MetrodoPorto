@@ -1,10 +1,17 @@
 import { View, Text } from "react-native";
 import { useRouter } from "expo-router";
 import { Feather } from "@expo/vector-icons";
-import { Linking } from 'react-native'
+import { Linking, Platform } from 'react-native'
+
+const FULL_ADDRESS = "Avenida Fernão de Magalhães, 1862, 7º, 4350-158 Porto";
 
 export default function Contactos() {
   const router = useRouter();
+
+  const addressUrl = Platform.select({
+    ios: `maps:41.1654045,-8.5886866?q=${FULL_ADDRESS}`,
+    android: `geo:41.1654045,-8.5886866?q=${FULL_ADDRESS}`,
+  })
 
   return (
     <View className="items-center p-8 flex-1">
@@ -26,7 +33,7 @@ export default function Contactos() {
         <Text onPress={() => { Linking.openURL('mailto:metro@metrodoporto.pt'); }} className="text-zinc-400 underline">metro@metrodoporto.pt</Text>
         <View className=" h-[1px] bg-white" />
         <Text className="text-slate-600 text-xl">Morada:</Text>
-        <Text className="text-zinc-400">Avenida Fernão de Magalhães, 1862, 7º, 4350-158 Porto</Text>
+        <Text onPress={() => Linking.openURL(addressUrl)} className="text-zinc-400 underline">Avenida Fernão de Magalhães, 1862, 7º, 4350-158 Porto</Text>
         <View className=" h-[1px] bg-blue-100" />
         <Text className="text-slate-600 text-xl">Apoio ao cliente:</Text>
         <Text onPress={() => { Linking.openURL('mailto:apoio.clientes@metrodoporto.pt'); }} className="text-zinc-400 underline">apoio.clientes@metrodoporto.pt</Text>
