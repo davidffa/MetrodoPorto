@@ -54,7 +54,7 @@ export default function More() {
         <MoreOption
           name="Definições"
           icon={<Feather name="settings" size={28} />}
-          onPress={() => (router.push("/more/settings"))}
+          onPress={() => (router.push("/more/Definicoes"))}
         />
       </View>
     </View>
