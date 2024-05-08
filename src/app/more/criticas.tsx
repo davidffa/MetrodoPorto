@@ -5,6 +5,8 @@ import { View, Text, ScrollView, TouchableOpacity, Alert, TextInput } from "reac
 import { FormInput } from '../components/form-input';
 
 const NAME_REGEX = /^[a-zA-Z ]+$/;
+const PHONE_REGEX = /^[\d]{9}$/;
+const EMAIL_REGEX = /^.+@.+\.[A-Za-z]+$/;
 
 export default function Criticas() {
   const router = useRouter();
@@ -20,6 +22,14 @@ export default function Criticas() {
 
     if (!name.match(NAME_REGEX)) {
       return Alert.alert("Erro", "O nome não pode ter números");
+    }
+
+    if (!email.match(EMAIL_REGEX)) {
+      return Alert.alert("Erro", "Formato de email inválido!");
+    }
+
+    if (!tel.match(PHONE_REGEX)) {
+      return Alert.alert("Erro", "Formato de telefone inválido!");
     }
 
     Alert.alert("Sucesso", "A sua crítica/sugestão foi enviada com sucesso!");

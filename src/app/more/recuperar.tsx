@@ -24,10 +24,17 @@ export default function Recuperar() {
   }, [remaining]);
 
   function handleCodeChange(digit: string, index: number) {
-    if (index < 5) {
-      codeRef[index + 1].current!.focus();
+    if (digit == "") {
+      if (index > 0 && index < 6)
+        codeRef[index - 1].current!.focus();
+      else
+        codeRef[index].current!.blur();
     } else {
-      codeRef[index].current!.blur();
+      if (index < 5) {
+        codeRef[index + 1].current!.focus();
+      } else {
+        codeRef[index].current!.blur();
+      }
     }
 
     setCode(prev => {
@@ -45,8 +52,17 @@ export default function Recuperar() {
   }
 
   function recovery() {
+    if (code.length < 6 || code.some(it => it === "")) {
+      Alert.alert("Erro", "Preencha o código de recuperação!");
+      return;
+    }
+
+    while (router.canGoBack()) {
+      router.back();
+    }
+
     Alert.alert("Sucesso", "Foram recuperados 2 passes com sucesso!");
-    router.replace("/tickets")
+    router.replace("/tickets/")
   }
 
   return (
@@ -133,6 +149,6 @@ export default function Recuperar() {
           }
         </ScrollView>
       </KeyboardAwareScrollView>
-    </View >
+    </View>
   );
 }
