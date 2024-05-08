@@ -10,7 +10,7 @@ const info = [
     content: "Para poder viajar na rede metropolitana, necessita de um cartão Andante carregado com títulos de transporte e de o validar antes de iniciar viagem. OU Pode também utilizar a aplicação no seu telemóvel. É igualmente obrigatória a validação antes de iniciar viagem."
   },
   {
-    title: "Um bilhete muitas viagens",
+    title: "1 bilhete = ? viagens",
     content: "Pode fazer o número de viagens que quiser respeitando os limites de zona e de tempo definidos. Exemplo: se comprar um Título de Viagem Z2, pode viajar durante uma hora, na zona em que começa a viagem (1ª validação) bem como em todas as outras que com ela fazem fronteira. Sempre que fizer uma validação dentro dessa mesma hora, não lhe é descontado outro título de viagem. Não está a gastar mais mas apenas a aproveitar o tempo de viagem que ainda lhe resta!"
   },
   {
@@ -27,7 +27,7 @@ const info = [
     content: "Use os validadores existentes nas estações. Em caso de avaria dos mesmos, por favor ligue para o número disponível no topo de cada validador, podendo circular dessa estação para a seguinte e validar na seguinte."
   },
   {
-    title: "O metro para as crianças",
+    title: "Crianças no Metro",
     content: "As crianças com idade inferior a 12 anos podem viajar sem título de transporte. Sendo obrigatória a presença de um adulto que a acompanhe."
   },
   {

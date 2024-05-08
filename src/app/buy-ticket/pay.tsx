@@ -16,7 +16,7 @@ export default function Pay() {
   function confirmPayment() {
     Alert.alert(
       "Confirmação",
-      `Tem a certe que pretende pagar ${params.total}€ com ${selectedPayment}?`,
+      `Tem a certeza que pretende pagar ${params.total}€ com ${selectedPayment}?`,
       [
         {
           text: "Cancelar",

@@ -12,6 +12,20 @@ export default function Payment() {
   const params = useLocalSearchParams();
   const [selectedPayment, setSelectedPayment] = useState("MBWay");
 
+  function confirmPayment() {
+    Alert.alert(
+      "Confirmação",
+      `Tem a certeza que pretende pagar ${params.total}€ com ${selectedPayment}?`,
+      [
+        {
+          text: "Cancelar",
+          style: "cancel"
+        },
+        { text: "OK", onPress: fakePayment }
+      ]
+    );
+  }
+
   function fakePayment() {
     Alert.alert("Sucesso", params.successMessage as string);
 
@@ -49,7 +63,7 @@ export default function Payment() {
           <Text className="items-end font-bold text-2xl">Total: {Number(params.total).toFixed(2)}€</Text>
         </View>
 
-        <PayButton onPress={fakePayment} />
+        <PayButton onPress={confirmPayment} />
       </View>
     </View>
   );

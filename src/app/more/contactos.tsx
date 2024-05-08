@@ -11,7 +11,7 @@ export default function Contactos() {
   const addressUrl = Platform.select({
     ios: `maps:41.1654045,-8.5886866?q=${FULL_ADDRESS}`,
     android: `geo:41.1654045,-8.5886866?q=${FULL_ADDRESS}`,
-  })
+  }) as string
 
   return (
     <View className="items-center p-8 flex-1">
