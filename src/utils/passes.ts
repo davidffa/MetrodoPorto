@@ -4,7 +4,7 @@ export const passes = [
     name: "Passe Mensal",
     value: 40.0,
     activationDate: '2024-04-02',
-    expireDate: '2024-05-10',
+    expireDate: '2024-05-12',
     lastUse: '24-04-2024 - 9:21'
   },
   {
@@ -12,7 +12,7 @@ export const passes = [
     name: "Passe Estudante",
     value: 30.0,
     activationDate: '16-09-2023',
-    expireDate: '2024-05-16',
+    expireDate: '2024-05-20',
     lastUse: '24-04-2024 - 9:21'
   }
 ]
