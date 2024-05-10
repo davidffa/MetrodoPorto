@@ -33,6 +33,10 @@ export default function Criticas() {
     }
 
     Alert.alert("Sucesso", "A sua crítica/sugestão foi enviada com sucesso!");
+
+    while (router.canGoBack()) {
+      router.back()
+    }
   }
 
   return (
