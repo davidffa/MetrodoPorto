@@ -1,5 +1,5 @@
 import { Feather } from "@expo/vector-icons";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { Linking } from "react-native";
 import { MoreOption } from "../components/more-option";
@@ -50,11 +50,6 @@ export default function More() {
           name="Contactos"
           icon={<Feather name="phone" size={28} />}
           onPress={() => (router.push("/more/contactos"))}
-        />
-        <MoreOption
-          name="Definições"
-          icon={<Feather name="settings" size={28} />}
-          onPress={() => (router.push("/more/Definicoes"))}
         />
       </View>
     </View>
