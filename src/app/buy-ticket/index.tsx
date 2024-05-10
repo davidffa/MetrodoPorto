@@ -32,11 +32,6 @@ export default function Home() {
       <View className="items-center justify-center p-8 flex-1">
         <View className="flex-row justify-between w-full">
           <Text className="font-bold text-3xl text-slate-600">Comprar bilhetes</Text>
-          <Steps>
-            <Steps.Full />
-            <Steps.Empty />
-            <Steps.Empty />
-          </Steps>
         </View>
         <View className="w-full h-[1px] bg-blue-100 mt-2" />
 

@@ -44,7 +44,6 @@ export default function Pay() {
         <Steps>
           <Steps.Full />
           <Steps.Full />
-          <Steps.Full />
         </Steps>
       </View>
 

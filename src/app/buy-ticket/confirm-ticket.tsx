@@ -27,7 +27,6 @@ export default function ConfirmTicket() {
         <Feather name="arrow-left" size={24} onPress={() => router.back()} />
         <Steps>
           <Steps.Full />
-          <Steps.Full />
           <Steps.Empty />
         </Steps>
       </View>
