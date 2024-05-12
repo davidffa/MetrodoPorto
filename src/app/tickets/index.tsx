@@ -35,6 +35,8 @@ export default function Tickets() {
         </SwitchChoice>
 
         <ScrollView className="mt-4" showsVerticalScrollIndicator={false}>
+        <Text
+        className="py-2 focus:text-gray-200 active:text-gray-200 text-center justify-items-center items-center text-blue-500 underline" onPress={() => router.push({pathname: "./more/recuperar"})} >Recuperar bilhetes</Text>
           {
             activeTab === "tickets" ?
               (
