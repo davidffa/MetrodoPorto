@@ -68,7 +68,7 @@ export default function Tickets() {
           ) :
           (
             <TouchableOpacity
-              className="absolute bottom-10 right-10 bg-blue-800 rounded-full p-5 "
+              className="absolute bottom-10 right-10 bg-blue-800 rounded-full p-5 border border-white"
               onPress={() => router.push({ pathname: "/tickets/create-pass" })}
             >
               <Feather name="plus" size={30} color="white" />
