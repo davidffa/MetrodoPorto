@@ -1,6 +1,7 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import dayjs from "dayjs";
+import clsx from "clsx";
 
 type PassProps = {
   id: string;
@@ -20,15 +21,22 @@ export function Passe({ id, type, expireDate, usePass, managePass }: PassProps) 
           {type}
         </Text>
         {
-          diff < 10 && (
+          diff < 0 ? (
             <View className="flex-row items-center gap-1">
-              <Ionicons name="warning-outline" size={20} color="orange" />
-
-              <Text className="font-regular text-xs text-slate-800">
-                Expira em {diff} dias
+              <Text className="font-bold text-sm text-red-600">
+                Expirou!
               </Text>
             </View>
           )
+            : diff < 10 && (
+              <View className="flex-row items-center gap-1">
+                <Ionicons name="warning-outline" size={20} color="orange" />
+
+                <Text className="font-regular text-xs text-slate-800">
+                  Expira em {diff} dias
+                </Text>
+              </View>
+            )
         }
       </View>
 
@@ -38,7 +46,9 @@ export function Passe({ id, type, expireDate, usePass, managePass }: PassProps) 
             Gerir
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-blue-800 items-center justify-center px-6 py-3 rounded-md" onPress={() => usePass(id)}>
+        <TouchableOpacity className={clsx("bg-blue-800 items-center justify-center px-6 py-3 rounded-md", {
+          "opacity-50": diff < 0
+        })} disabled={diff < 0} onPress={() => usePass(id)}>
           <Text className="font-bold text-white text-l">
             Usar
           </Text>
