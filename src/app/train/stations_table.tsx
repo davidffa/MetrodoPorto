@@ -33,7 +33,7 @@ export default function StationTrain() {
         </SwitchChoice>
       </View>
 
-      <StationLines line={params.line as Line}></StationLines>
+      <StationLines line={params.line as Line} />
     </View>
   )
 }
