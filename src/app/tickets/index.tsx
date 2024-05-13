@@ -35,8 +35,6 @@ export default function Tickets() {
         </SwitchChoice>
 
         <ScrollView className="mt-4" showsVerticalScrollIndicator={false}>
-        <Text
-        className="py-2 focus:text-gray-200 active:text-gray-200 text-center justify-items-center items-center text-blue-500 underline" onPress={() => router.push({pathname: "./more/recuperar"})} >Recuperar bilhetes</Text>
           {
             activeTab === "tickets" ?
               (
@@ -49,7 +47,10 @@ export default function Tickets() {
               ) :
               (
                 <>
+                        <Text
+        className="py-2 active:color-slate-300 text-center justify-items-center items-center text-blue-400 underline" onPress={() => router.push({pathname: "./more/recuperar"})} >Recuperar bilhetes</Text>
                   {
+                    
                     passes.map(pass => <Passe key={pass.id} id={pass.id} expireDate={pass.expireDate} type={pass.name} usePass={useTicket} managePass={managePass} />)
                   }
                 </>
@@ -61,18 +62,24 @@ export default function Tickets() {
       {
         activeTab === "tickets" ?
           (
+            
             <TouchableOpacity
               className="absolute bottom-10 right-10 bg-white rounded-full p-4 border border-blue-800"
               onPress={() => router.push({ pathname: "/tickets/ticket-history" })}
             >
+              
               <MaterialCommunityIcons name="history" size={34} color="blue" />
             </TouchableOpacity>
           ) :
+          
           (
+            
+            
             <TouchableOpacity
               className="absolute bottom-10 right-10 bg-blue-800 rounded-full p-5 border border-white"
               onPress={() => router.push({ pathname: "/tickets/create-pass" })}
             >
+      
               <Feather name="plus" size={30} color="white" />
             </TouchableOpacity>
           )
