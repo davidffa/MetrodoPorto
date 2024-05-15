@@ -1,5 +1,4 @@
 import { Text, View } from "react-native";
-import { Steps } from "../components/steps";
 import { LocationInput } from "../components/location-input";
 import { NextButton } from "../components/next-button";
 import { useState } from "react";
@@ -12,15 +11,13 @@ import { DarkModeContext } from '../contexts/theme';
 export default function Home() {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
-  const {theme, setTheme} = useContext(DarkModeContext);
-
+  const { theme } = useContext(DarkModeContext);
 
   const router = useRouter();
 
   function goNext() {
     router.push({ pathname: '/buy-ticket/confirm-ticket', params: { zone: 'Z2' } });
   }
-  
 
   return (
     <View className="flex-1 justify-between">
@@ -37,8 +34,7 @@ export default function Home() {
       </View>
       <View className="items-center justify-center p-8 flex-1">
         <View className="flex-row justify-between w-full">
-          <Text className="font-bold text-3xl" style = {{color: theme === 'dark' ? '#c4d0dd' : '#475569'}} >Comprar bilhetes</Text>
-          {/* <Text> Theme is {theme}</Text> */}
+          <Text className="font-bold text-3xl" style={{ color: theme === 'dark' ? '#c4d0dd' : '#475569' }} >Comprar bilhetes</Text>
         </View>
         <View className="w-full h-[1px] mt-2 bg-blue-100" />
 

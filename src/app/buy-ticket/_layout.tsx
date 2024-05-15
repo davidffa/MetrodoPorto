@@ -4,7 +4,10 @@ export default function BuyTicketLayout() {
   return (
     <Stack
       screenOptions={{
-        headerShown: false
+        headerShown: false,
+        contentStyle: {
+          backgroundColor: "gray"
+        }
       }}
     />
   )

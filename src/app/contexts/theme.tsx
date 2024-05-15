@@ -1,17 +1,20 @@
-//dark mode context
+import { ReactNode, createContext, useState } from 'react';
 
-import { createContext, useState } from 'react';
+type DarkModeContextData = {
+  theme: string;
+  setTheme: (mode: 'light' | 'dark') => void;
+};
 
-const DarkModeContext = createContext<{ theme: string; setTheme: React.Dispatch<React.SetStateAction<string>> }>({ theme: 'light', setTheme: () => {} });
+const DarkModeContext = createContext<DarkModeContextData>({} as DarkModeContextData);
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const [theme, setTheme] = useState('light');
 
-    const [theme, setTheme] = useState('light');
-    return (
-        <DarkModeContext.Provider value={{ theme, setTheme }}>
-            {children}
-        </DarkModeContext.Provider>
-    )
+  return (
+    <DarkModeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </DarkModeContext.Provider>
+  )
 }
 
-export { DarkModeContext, ThemeProvider }
+export { DarkModeContext, ThemeProvider };

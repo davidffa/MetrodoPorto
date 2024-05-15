@@ -18,7 +18,7 @@ import { DarkModeContext } from './contexts/theme';
 
 export default function Layout() {
 
-  const {theme, setTheme} = useContext(DarkModeContext);
+  const { theme, setTheme } = useContext(DarkModeContext);
 
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -31,48 +31,48 @@ export default function Layout() {
 
   return (
     <ThemeProvider>
-    <>
-      <StatusBar style='auto' />
-      
-      <Tabs screenOptions={{ tabBarActiveTintColor: theme == 'dark' ? '#64748b' : '#2465c7' }}>
-        <Tabs.Screen
-          name="index"
-          redirect
-        />
-        <Tabs.Screen
-          name="buy-ticket"
-          options={{
-            tabBarIcon: ({ color }) => <Feather name="map" size={28} color={color} />,
-            header: () => <Header />,
-            tabBarLabel: () => null
-          }}
-        />
-        <Tabs.Screen
-          name="tickets"
-          options={{
-            tabBarIcon: ({ color }) => <Ionicons name="ticket-outline" size={28} color={color} />,
-            header: () => <Header />,
-            tabBarLabel: () => null
-          }}
-        />
-        <Tabs.Screen
-          name="train"
-          options={{
-            tabBarIcon: ({ color }) => <Fontisto name="train" size={28} color={color} />,
-            header: () => <Header />,
-            tabBarLabel: () => null
-          }}
-        />
-        <Tabs.Screen
-          name="more"
-          options={{
-            tabBarIcon: ({ color }) => <Feather name="menu" size={28} color={color} />,
-            header: () => <Header />,
-            tabBarLabel: () => null
-          }}
-        />
-      </Tabs>
-    </>
+      <>
+        <StatusBar style='light' />
+
+        <Tabs screenOptions={{ tabBarActiveTintColor: theme == 'dark' ? '#64748b' : '#2465c7' }} sceneContainerStyle={{ backgroundColor: "#000000" }}>
+          <Tabs.Screen
+            name="index"
+            redirect
+          />
+          <Tabs.Screen
+            name="buy-ticket"
+            options={{
+              tabBarIcon: ({ color }) => <Feather name="map" size={28} color={color} />,
+              header: () => <Header />,
+              tabBarLabel: () => null
+            }}
+          />
+          <Tabs.Screen
+            name="tickets"
+            options={{
+              tabBarIcon: ({ color }) => <Ionicons name="ticket-outline" size={28} color={color} />,
+              header: () => <Header />,
+              tabBarLabel: () => null
+            }}
+          />
+          <Tabs.Screen
+            name="train"
+            options={{
+              tabBarIcon: ({ color }) => <Fontisto name="train" size={28} color={color} />,
+              header: () => <Header />,
+              tabBarLabel: () => null
+            }}
+          />
+          <Tabs.Screen
+            name="more"
+            options={{
+              tabBarIcon: ({ color }) => <Feather name="menu" size={28} color={color} />,
+              header: () => <Header />,
+              tabBarLabel: () => null
+            }}
+          />
+        </Tabs>
+      </>
     </ThemeProvider>
   );
 }
