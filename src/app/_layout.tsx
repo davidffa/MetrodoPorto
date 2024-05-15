@@ -29,12 +29,19 @@ export default function Layout() {
 
   if (!fontsLoaded) return;
 
+  // , tabBarBackground() {return theme === 'dark' ? '#1e1e1e' : '#ffffff';},
+
   return (
     <ThemeProvider>
       <>
         <StatusBar style='light' />
 
-        <Tabs screenOptions={{ tabBarActiveTintColor: theme == 'dark' ? '#64748b' : '#2465c7' }} sceneContainerStyle={{ backgroundColor: "#000000" }}>
+        <Tabs screenOptions={{ tabBarActiveTintColor: theme == 'dark' ? '#4748b' : '#2465c7',
+          tabBarStyle: { backgroundColor: theme === 'dark' ? '#1e1e1e' : '#ffffff' },
+        }} sceneContainerStyle={{ backgroundColor: "#ffffff" }}
+            
+            
+        >
           <Tabs.Screen
             name="index"
             redirect
@@ -45,6 +52,7 @@ export default function Layout() {
               tabBarIcon: ({ color }) => <Feather name="map" size={28} color={color} />,
               header: () => <Header />,
               tabBarLabel: () => null
+
             }}
           />
           <Tabs.Screen

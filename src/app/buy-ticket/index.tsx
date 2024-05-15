@@ -34,7 +34,7 @@ export default function Home() {
       </View>
       <View className="items-center justify-center p-8 flex-1">
         <View className="flex-row justify-between w-full">
-          <Text className="font-bold text-3xl" style={{ color: theme === 'dark' ? '#c4d0dd' : '#475569' }} >Comprar bilhetes</Text>
+          <Text className="font-bold text-3xl" style={{ color: theme === 'dark' ? '#ffffff' : '#475569' }} >Comprar bilhetes</Text>
         </View>
         <View className="w-full h-[1px] mt-2 bg-blue-100" />
 

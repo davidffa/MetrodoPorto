@@ -71,8 +71,8 @@ export default function CreatePass() {
       <ScrollView className="p-8">
         <View className="flex-row gap-6 w-full items-center justify-between">
           <View className="flex-row gap-4">
-            <Feather name="arrow-left" size={30} color='grey' onPress={() => router.back()} />
-            <Text className="font-bold text-3xl text-slate-600">Criar passe</Text>
+            <Feather name="arrow-left" size={30} style={{color: theme === 'dark' ? 'white' : '#475569'}} onPress={() => router.back()} />
+            <Text className="font-bold text-3xl"style={{color: theme === 'dark' ? 'white' : '#475569'}}>Criar passe</Text>
           </View>
 
           <Steps>
@@ -85,7 +85,7 @@ export default function CreatePass() {
 
         <View className="items-center gap-6 justify-center">
           <View className="w-full gap-2">
-            <Text className="font-regular text-lg">Tipo de Passe</Text>
+            <Text className="font-regular text-lg"style={{color: theme === 'dark' ? 'white' : '#475569'}}>Tipo de Passe</Text>
             <View className="w-full bg-white rounded-md border border-gray-300">
               <Picker
                 selectedValue={selectedType}
@@ -124,18 +124,18 @@ export default function CreatePass() {
             selectedType === "estudante" && (
               file === null ?
                 <View className="w-full gap-2">
-                  <Text className="font-regular text-lg">Comprovativo de estudante</Text>
+                  <Text className="font-regular text-lg" style={{color: theme === 'dark' ? 'white' : '#475569'}}>Comprovativo de estudante</Text>
                   <TouchableOpacity
                     className="rounded-md border-2 border-dotted border-blue-800 bg-blue-300 w-full py-6 items-center justify-center"
                     activeOpacity={0.7}
                     onPress={uploadDoc}
                   >
-                    <Text className="text-white font-semibold text-xl">Anexar comprovativo</Text>
+                    <Text className=" font-semibold text-xl" style={{color: theme === 'dark' ? 'white' : '#475569'}}>Anexar comprovativo</Text>
                   </TouchableOpacity>
                 </View>
                 :
                 <View className="w-full gap-2">
-                  <Text className="font-regular text-lg">Documento anexado</Text>
+                  <Text className="font-regular text-lg" style={{color: theme === 'dark' ? 'white' : '#475569'}} >Documento anexado</Text>
                   <View className="flex-row w-full justify-between items-center bg-white p-2 rounded-md border border-gray-300">
                     <Text className="font-regular text-xl">{fileName}</Text>
                     <Feather name="x" color="red" size={24} onPress={() => setFile(null)} />

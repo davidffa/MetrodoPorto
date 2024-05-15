@@ -72,8 +72,8 @@ export default function Recuperar() {
   return (
     <View className="p-8 flex-1">
       <View className="flex-row items-center w-full gap-4">
-        <Feather name="arrow-left" size={36} color="#475569" onPress={() => router.back()} />
-        <Text className="font-bold text-3xl text-slate-600">Recuperar Passes</Text>
+        <Feather name="arrow-left" size={36} style={{color: theme === 'dark' ? 'white' : '#475569'}} onPress={() => router.back()} />
+        <Text className="font-bold text-3xl" style={{color: theme === 'dark' ? 'white' : '#475569'}}>Recuperar Passes</Text>
       </View>
 
       <View className="w-full h-[1px] bg-blue-100 mt-2 mb-12" />
@@ -82,7 +82,7 @@ export default function Recuperar() {
         showsVerticalScrollIndicator={false}
       >
         <ScrollView>
-          <Text className="text-xl text-center">Insira o seu número de telemóvel ou o email associado aos passes</Text>
+          <Text className="text-xl text-center" style={{color: theme === 'dark' ? 'white' : 'black'}}>Insira o seu número de telemóvel ou o email associado aos passes</Text>
 
           <View className="items-center gap-6 justify-center mt-4">
             <FormInput

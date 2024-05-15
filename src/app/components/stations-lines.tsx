@@ -34,7 +34,7 @@ export function StationLines({ line }: { line: Line }) {
                   "bg-purple-500": line === 'E',
                   "bg-orange-500": line === 'F'
                 })} />
-                <Text className="text-slate-800 font-medium font-regular">{name}</Text>
+                <Text className=" font-medium font-regular" style = {{color: 'dark' ? 'white' : '#1e293b'}}>{name}</Text>
               </View>
             ))
           }

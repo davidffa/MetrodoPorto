@@ -28,7 +28,7 @@ export default function Tickets() {
     <View className="flex-1">
       <View className="items-center justify-center mt-4 p-8">
         <View className="flex-row justify-between w-full">
-          <Text className="font-bold text-3xl text-slate-600">Bilhetes e Passes</Text>
+          <Text className="font-bold text-3xl" style = {{color: theme === 'dark' ? 'white' : '#475569'}}>Bilhetes e Passes</Text>
         </View>
 
         <View className="w-full h-[1px] bg-blue-100 mt-2 mb-4" />

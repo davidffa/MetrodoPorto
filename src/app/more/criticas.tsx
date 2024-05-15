@@ -47,8 +47,8 @@ export default function Criticas() {
 
     <ScrollView className="p-8 flex-1">
       <View className="flex-row items-center gap-4 w-full">
-        <Feather name="arrow-left" size={36} color="#475569" onPress={() => router.back()} />
-        <Text className="font-bold text-3xl text-slate-600">Críticas/Sugestões</Text>
+        <Feather name="arrow-left" size={36} style={{color: theme === 'dark' ? 'white' : '#475569'}} onPress={() => router.back()} />
+        <Text className="font-bold text-3xl "style={{color: theme === 'dark' ? 'white' : '#475569'}}>Críticas/Sugestões</Text>
       </View>
 
       <View className="w-full h-[1px] bg-blue-100 mt-2 mb-4" />
@@ -77,7 +77,7 @@ export default function Criticas() {
           onChangeText={setTel}
         />
         <View className="w-full gap-2">
-          <Text className="font-regular text-lg">Comentário:</Text>
+          <Text className="font-regular text-lg" style={{color: theme === 'dark' ? 'white' : '#black'}}>Comentário:</Text>
 
           <TextInput
             className="bg-white p-2 rounded-md border border-zinc-300"

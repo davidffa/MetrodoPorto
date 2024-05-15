@@ -42,7 +42,7 @@ export default function TableTrain() {
       </View>
 
       <ScrollView contentContainerStyle={{ alignItems: "center" }} showsVerticalScrollIndicator={false}>
-        <Text className="text-2xl font-semibold">Dias úteis:</Text>
+        <Text className="text-2xl font-semibold" style = {{color: 'dark' ? 'white' : '#1e293b'}}>Dias úteis:</Text>
 
         <View className="mt-6 mb-12">
           <View className="w-full flex-row">
@@ -56,7 +56,7 @@ export default function TableTrain() {
           </View>
         </View>
 
-        <Text className="text-2xl font-semibold">Partidas:</Text>
+        <Text className="text-2xl font-semibold" style = {{color: 'dark' ? 'white' : '#1e293b'}}>Partidas:</Text>
 
         <View className="mt-6 mb-12">
           <View className="w-full flex-row">
@@ -94,7 +94,7 @@ export default function TableTrain() {
           </View>
         </View>
         <View className="w-full items-center">
-          <Text className="text-2xl font-semibold">Sábados, Domingos e Feriados:</Text>
+          <Text className="text-2xl font-semibold" style = {{color: 'dark' ? 'white' : '#1e293b'}}>Sábados, Domingos e Feriados:</Text>
         </View>
         <View className="mt-6 mb-12">
           <View className="w-full flex-row">

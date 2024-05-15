@@ -12,7 +12,7 @@ export function FormInput({ name, ...rest }: Props) {
   const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <View className="w-full gap-2">
-      <Text className="font-regular text-lg">{name}</Text>
+      <Text className="font-regular text-lg" style={{color: theme === 'dark' ? 'white' : '#475569'}}>{name}</Text>
 
       <TextInput className="bg-white p-2 rounded-md border border-zinc-300" {...rest} />
     </View>

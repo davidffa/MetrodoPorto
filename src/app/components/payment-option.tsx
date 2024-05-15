@@ -18,7 +18,7 @@ export function PaymentOption({ image, name, selected = false, ...rest }: Props)
       {...rest}
     >
       <Image source={image} />
-      <Text className="font-medium text-xl">{name}</Text>
+      <Text className="font-medium text-xl" >{name}</Text>
       <View className="border border-blue-400 rounded-full w-6 h-6 p-1">
         {
           selected && (

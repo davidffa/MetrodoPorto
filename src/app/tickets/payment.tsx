@@ -44,14 +44,14 @@ export default function Payment() {
   return (
     <View className="flex-1 py-10 px-6">
       <View className="items-center justify-between flex-row">
-        <Feather name="arrow-left" size={24} onPress={() => router.back()} />
+        <Feather name="arrow-left"style={{color: theme === 'dark' ? 'white' : 'black'}} size={24} onPress={() => router.back()} />
         <Steps>
           <Steps.Full />
           <Steps.Full />
         </Steps>
       </View>
 
-      <Text className="font-bold text-3xl mt-8 text-slate-800">Método de Pagamento</Text>
+      <Text className="font-bold text-3xl mt-8 "style={{color: theme === 'dark' ? 'white' : '#1e293b'}}>Método de Pagamento</Text>
       <View className="w-full h-[1px] bg-blue-100 mt-2" />
 
       <View className="mt-6 flex-1 justify-around">
@@ -64,7 +64,7 @@ export default function Payment() {
         </View>
 
         <View className="items-end">
-          <Text className="items-end font-bold text-2xl">Total: {Number(params.total).toFixed(2)}€</Text>
+          <Text className="items-end font-bold text-2xl" style={{color: theme === 'dark' ? 'white' : 'black'}}>Total: {Number(params.total).toFixed(2)}€</Text>
         </View>
 
         <PayButton onPress={confirmPayment} />

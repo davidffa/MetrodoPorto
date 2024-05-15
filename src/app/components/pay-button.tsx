@@ -8,7 +8,7 @@ export function PayButton({ ...rest }: TouchableOpacityProps) {
   const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <TouchableOpacity
-      className="w-full py-3 items-center justify-center rounded-md" style = {{backgroundColor: theme === 'dark' ? '#0c4b21' : '#16a34a'}}
+      className="w-full py-3 items-center justify-center rounded-md" style = {{backgroundColor: theme === 'dark' ? '#217704' : '#16a34a'}}
       activeOpacity={0.7}
       {...rest}
     >
