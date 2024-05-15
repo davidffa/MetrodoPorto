@@ -7,7 +7,11 @@ import { PayButton } from "../components/pay-button";
 import { useState } from "react";
 import { paymentMethods } from "@/utils/payment-methods";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function Payment() {
+  const {theme, setTheme} = useContext(DarkModeContext);
   const router = useRouter();
   const params = useLocalSearchParams();
   const [selectedPayment, setSelectedPayment] = useState("MBWay");

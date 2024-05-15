@@ -3,6 +3,9 @@ import { View, Text, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 import { Feather } from "@expo/vector-icons";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 // TODO: Move to utils
 const info = [
   {
@@ -38,13 +41,15 @@ const info = [
 
 export default function Informacoes() {
   const router = useRouter();
+
+  const { theme, setTheme } = useContext(DarkModeContext);
   return (
 
     <>
       <View className="items-center mt-8 ml-8 mr-8">
         <View className="flex-row items-center gap-4 w-full">
-          <Feather name="arrow-left" size={36} color="#475569" onPress={() => router.back()} />
-          <Text className="font-bold text-4xl text-slate-600">Informações</Text>
+          <Feather name="arrow-left" size={36} style={{color: theme === 'dark' ? 'white' : '#475569'}} onPress={() => router.back()} />
+          <Text className="font-bold text-4xl" style={{color: theme === 'dark' ? 'white' : '#475569'}}>Informações</Text>
         </View>
         <View className="w-full h-[1px] bg-blue-100 mt-2 " />
       </View>

@@ -2,7 +2,12 @@ import clsx from "clsx";
 import { ReactNode } from "react";
 import { Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 function SwitchChoice({ children }: { children: ReactNode }) {
+
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <View className="w-full flex-row">
       {children}

@@ -3,10 +3,14 @@ import { useRouter } from "expo-router";
 import { Feather } from "@expo/vector-icons";
 import { Linking, Platform } from 'react-native'
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 const FULL_ADDRESS = "Avenida Fernão de Magalhães, 1862, 7º, 4350-158 Porto";
 
 export default function Contactos() {
   const router = useRouter();
+  const {theme, setTheme} = useContext(DarkModeContext);
 
   const addressUrl = Platform.select({
     ios: `maps:41.1654045,-8.5886866?q=${FULL_ADDRESS}`,

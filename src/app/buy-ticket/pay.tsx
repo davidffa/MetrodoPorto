@@ -7,10 +7,15 @@ import { PayButton } from "../components/pay-button";
 import { useState } from "react";
 import { paymentMethods } from "@/utils/payment-methods";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function Pay() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const [selectedPayment, setSelectedPayment] = useState("MBWay");
+
+  const {theme, setTheme} = useContext(DarkModeContext);
 
 
   function confirmPayment() {
@@ -47,7 +52,7 @@ export default function Pay() {
         </Steps>
       </View>
 
-      <Text className="font-bold text-3xl mt-8 text-slate-800">Método de Pagamento</Text>
+      <Text className="font-bold text-3xl mt-8" style= {{color: theme === 'dark' ? 'white' : '#1e293b'}}>Método de Pagamento</Text>
       <View className="w-full h-[1px] bg-blue-100 mt-2" />
 
       <View className="mt-6 flex-1 justify-around">
@@ -60,7 +65,7 @@ export default function Pay() {
         </View>
 
         <View className="items-end">
-          <Text className="items-end font-bold text-2xl">Total: {params.total}€</Text>
+          <Text className="items-end font-bold text-2xl" style= {{color: theme === 'dark' ? 'white' : '#1e293b'}}>Total: {params.total}€</Text>
         </View>
 
         <PayButton onPress={confirmPayment} />

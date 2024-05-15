@@ -4,6 +4,9 @@ import RNPickerSelect from "react-native-picker-select";
 import { locations } from "@/utils/locations";
 import { clsx } from "clsx";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 type Props = {
   placeholder: string;
   value: string;
@@ -11,6 +14,8 @@ type Props = {
 }
 
 export function LocationInput({ placeholder, value, onValueChange }: Props) {
+
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <View className="flex-row items-center w-full ps-4 bg-white rounded-md border border-zinc-300">
       <Feather name="map-pin" color="#525251" size={28} />

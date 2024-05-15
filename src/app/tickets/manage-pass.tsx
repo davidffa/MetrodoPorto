@@ -5,11 +5,15 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function ManagePass() {
   const { id } = useLocalSearchParams();
   const pass = passes.find(p => p.id === id)!;
   const diff = dayjs(pass.expireDate).diff(dayjs(), 'days');
   const router = useRouter();
+  const { theme, setTheme } = useContext(DarkModeContext);
 
   function usePass() {
     router.push({ pathname: "/tickets/use-ticket", params: { id } });

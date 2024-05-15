@@ -3,9 +3,14 @@ import { Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { ScrollView } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 
 export default function Privacidade() {
   const router = useRouter();
+
+  const { theme, setTheme } = useContext(DarkModeContext);
 
   return (
     <View className=" px-8 pt-8 flex-1">

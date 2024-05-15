@@ -7,10 +7,15 @@ import { clsx } from "clsx";
 import { dias_uteis_frequencia, dias_uteis_horas, feriados_frequencia, feriados_horas, partidas_primeira, partidas_ultima, partidas_stations } from "@/utils/tables";
 import { ScrollView } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function TableTrain() {
   const params = useLocalSearchParams();
   const line = params.line as Line;
   const router = useRouter();
+
+  const { theme, setTheme } = useContext(DarkModeContext);
 
   function goNext() {
     router.replace({ pathname: '/train/stations_table', params: { line: params.line } })

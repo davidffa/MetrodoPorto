@@ -1,5 +1,8 @@
 import { Text, TouchableOpacity, View } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 type Props = {
   id: string;
   type: string;
@@ -19,6 +22,8 @@ export function UsedTicket({
   station,
   buyAgain
 }: Props) {
+
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <View className="w-full p-6 gap-4 rounded-md border border-blue-800">
       <View className="flex-row items-center gap-2">

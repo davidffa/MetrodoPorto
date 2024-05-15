@@ -1,10 +1,15 @@
 import { Text, TextInput, TextInputProps, View } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 type Props = {
   name: string;
 } & TextInputProps;
 
 export function FormInput({ name, ...rest }: Props) {
+
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <View className="w-full gap-2">
       <Text className="font-regular text-lg">{name}</Text>

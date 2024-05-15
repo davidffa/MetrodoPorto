@@ -1,5 +1,8 @@
 import { Image, ImageProps, Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 type Props = {
   image: ImageProps;
   name: string;
@@ -7,6 +10,7 @@ type Props = {
 } & TouchableOpacityProps;
 
 export function PaymentOption({ image, name, selected = false, ...rest }: Props) {
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <TouchableOpacity
       className="w-full p-4 flex-row items-center justify-between rounded-md border border-blue-200 bg-white"

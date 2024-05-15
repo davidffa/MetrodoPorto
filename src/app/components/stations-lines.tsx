@@ -2,9 +2,14 @@ import { View, Text, ScrollView } from "react-native";
 import { clsx } from "clsx";
 import { stations } from "@/utils/stations";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export type Line = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 
 export function StationLines({ line }: { line: Line }) {
+
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <ScrollView className="w-full" contentContainerStyle={{ alignItems: 'center' }} showsVerticalScrollIndicator={false}>
       <View className="items-center">

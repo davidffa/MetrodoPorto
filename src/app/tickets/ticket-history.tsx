@@ -4,7 +4,12 @@ import { useRouter } from "expo-router";
 import { FlatList, Text, View } from "react-native";
 import { UsedTicket } from "../components/used-ticket";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function TicketHistory() {
+
+  const {theme, setTheme} = useContext(DarkModeContext);
   const router = useRouter();
 
   function buyAgain(id: string) {

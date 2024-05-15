@@ -5,9 +5,14 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function ConfirmTicket() {
   const router = useRouter();
   const params = useLocalSearchParams();
+
+  const {theme, setTheme} = useContext(DarkModeContext);
 
   const [quantity, setQuantity] = useState(1);
   const [subtotal, setSubtotal] = useState(1.14);
@@ -31,7 +36,7 @@ export default function ConfirmTicket() {
         </Steps>
       </View>
 
-      <Text className="font-bold text-3xl mt-8 text-slate-800">Confirmar Compra</Text>
+      <Text className="font-bold text-3xl mt-8" style = {{color: theme === 'dark' ? 'white' : '#1e293b'}}>Confirmar Compra</Text>
       <View className="w-full h-[1px] bg-blue-100 mt-2" />
 
       <View className="flex-1 justify-around">
@@ -59,16 +64,16 @@ export default function ConfirmTicket() {
 
         <View className="items-end mb-8 gap-2">
           <View className="flex-row">
-            <Text className="text-xl font-semibold">Sub-total: </Text>
-            <Text className="text-xl font-regular">{subtotal.toFixed(2)}€</Text>
+            <Text className="text-xl font-semibold" style = {{color: theme === 'dark' ? 'white' : '#1e293b'}}>Sub-total: </Text>
+            <Text className="text-xl font-regular" style = {{color: theme === 'dark' ? 'white' : '#1e293b'}}>{subtotal.toFixed(2)}€</Text>
           </View>
           <View className="flex-row">
-            <Text className="text-xl font-semibold">IVA: </Text>
-            <Text className="text-xl font-regular">{iva.toFixed(2)}€</Text>
+            <Text className="text-xl font-semibold" style = {{color: theme === 'dark' ? 'white' : '#1e293b'}}>IVA: </Text>
+            <Text className="text-xl font-regular" style = {{color: theme === 'dark' ? 'white' : '#1e293b'}}>{iva.toFixed(2)}€</Text>
           </View>
           <View className="flex-row">
-            <Text className="text-3xl font-bold">Total: </Text>
-            <Text className="text-3xl font-bold">{total.toFixed(2)}€</Text>
+            <Text className="text-3xl font-bold" style = {{color: theme === 'dark' ? 'white' : '#1e293b'}}>Total: </Text>
+            <Text className="text-3xl font-bold" style = {{color: theme === 'dark' ? 'white' : '#1e293b'}}>{total.toFixed(2)}€</Text>
           </View>
         </View>
 

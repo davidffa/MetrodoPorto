@@ -3,6 +3,9 @@ import { Ionicons } from '@expo/vector-icons';
 import dayjs from "dayjs";
 import clsx from "clsx";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 type PassProps = {
   id: string;
   type: string;
@@ -12,6 +15,7 @@ type PassProps = {
 }
 
 export function Passe({ id, type, expireDate, usePass, managePass }: PassProps) {
+  const { theme, setTheme } = useContext(DarkModeContext);
   const diff = dayjs(expireDate).diff(dayjs(), 'days');
 
   return (

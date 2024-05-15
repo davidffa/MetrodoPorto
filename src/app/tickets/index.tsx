@@ -8,9 +8,13 @@ import { Passe } from "../components/passe";
 import { SwitchChoice } from "../components/switchchoice";
 import { passes } from "@/utils/passes";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function Tickets() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<'pass' | 'tickets'>("tickets");
+  const { theme, setTheme } = useContext(DarkModeContext);
 
   function useTicket(id: string) {
     router.push({ pathname: "/tickets/use-ticket", params: { id } });

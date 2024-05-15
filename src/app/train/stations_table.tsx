@@ -4,9 +4,13 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { SwitchChoice } from "../components/switchchoice_lines";
 import { StationLines } from "../components/stations-lines";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function StationTrain() {
   const params = useLocalSearchParams();
   const router = useRouter();
+  const {theme, setTheme} = useContext(DarkModeContext);
 
   function goNext() {
 

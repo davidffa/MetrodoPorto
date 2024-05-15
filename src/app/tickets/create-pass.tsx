@@ -10,12 +10,17 @@ import { NextButton } from "../components/next-button";
 import { FormInput } from '../components/form-input';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 const NAME_REGEX = /^[a-zA-Z ]+$/;
 const PHONE_REGEX = /^[\d]{9}$/;
 const EMAIL_REGEX = /^.+@.+\.[A-Za-z]+$/;
 
 export default function CreatePass() {
   const router = useRouter();
+
+  const { theme, setTheme } = useContext(DarkModeContext);
 
   const [selectedType, setSelectedType] = useState("mensal");
   const [name, setName] = useState('');

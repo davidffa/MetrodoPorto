@@ -6,7 +6,11 @@ import { useEffect, useRef, useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import clsx from "clsx";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function Recuperar() {
+  const {theme, setTheme} = useContext(DarkModeContext);
   const router = useRouter();
   const [codeSent, setCodeSent] = useState(false);
   const [remaining, setRemaining] = useState(0);

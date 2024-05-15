@@ -1,6 +1,9 @@
 import { View, Text } from 'react-native'
 import { clsx } from 'clsx'
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export type Line = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 
 type Props = {
@@ -18,6 +21,7 @@ export function TableTimer({
   hours,
   frequency
 }: Props) {
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <View className={clsx("justify-cente flex-row border w-full bg-white", {
       "border-blue-400": line === 'A',

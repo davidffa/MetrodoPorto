@@ -11,8 +11,15 @@ import { StatusBar } from "expo-status-bar";
 import { Tabs } from "expo-router";
 import { Feather, Fontisto, Ionicons } from "@expo/vector-icons";
 import { Header } from "./components/header";
+import { ThemeProvider } from "./contexts/theme";
+
+import { useContext } from 'react';
+import { DarkModeContext } from './contexts/theme';
 
 export default function Layout() {
+
+  const {theme, setTheme} = useContext(DarkModeContext);
+
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -23,9 +30,11 @@ export default function Layout() {
   if (!fontsLoaded) return;
 
   return (
+    <ThemeProvider>
     <>
-      <StatusBar style="light" />
-      <Tabs screenOptions={{ tabBarActiveTintColor: '#1E40AF' }}>
+      <StatusBar style='auto' />
+      
+      <Tabs screenOptions={{ tabBarActiveTintColor: theme == 'dark' ? '#64748b' : '#2465c7' }}>
         <Tabs.Screen
           name="index"
           redirect
@@ -64,5 +73,6 @@ export default function Layout() {
         />
       </Tabs>
     </>
+    </ThemeProvider>
   );
 }

@@ -4,11 +4,15 @@ import { useRouter } from "expo-router";
 import { View, Text, ScrollView, TouchableOpacity, Alert, TextInput } from "react-native";
 import { FormInput } from '../components/form-input';
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 const NAME_REGEX = /^[a-zA-Z ]+$/;
 const PHONE_REGEX = /^[\d]{9}$/;
 const EMAIL_REGEX = /^.+@.+\.[A-Za-z]+$/;
 
 export default function Criticas() {
+  const {theme, setTheme} = useContext(DarkModeContext);
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

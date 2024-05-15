@@ -6,15 +6,21 @@ import { useState } from "react";
 import MapView from "react-native-maps";
 import { useRouter } from "expo-router";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function Home() {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
+  const {theme, setTheme} = useContext(DarkModeContext);
+
 
   const router = useRouter();
 
   function goNext() {
     router.push({ pathname: '/buy-ticket/confirm-ticket', params: { zone: 'Z2' } });
   }
+  
 
   return (
     <View className="flex-1 justify-between">
@@ -31,9 +37,10 @@ export default function Home() {
       </View>
       <View className="items-center justify-center p-8 flex-1">
         <View className="flex-row justify-between w-full">
-          <Text className="font-bold text-3xl text-slate-600">Comprar bilhetes</Text>
+          <Text className="font-bold text-3xl" style = {{color: theme === 'dark' ? '#c4d0dd' : '#475569'}} >Comprar bilhetes</Text>
+          {/* <Text> Theme is {theme}</Text> */}
         </View>
-        <View className="w-full h-[1px] bg-blue-100 mt-2" />
+        <View className="w-full h-[1px] mt-2 bg-blue-100" />
 
         <View className="w-full gap-6 mt-8 mb-8">
           <LocationInput placeholder="A sua origem" value={origin} onValueChange={setOrigin} />

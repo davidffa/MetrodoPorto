@@ -2,6 +2,9 @@ import clsx from "clsx";
 import { ReactNode } from "react";
 import { Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 function SwitchChoice({ children }: { children: ReactNode }) {
   return (
     <View className="w-full flex-row">
@@ -18,6 +21,7 @@ type ChoiceProps = {
 } & TouchableOpacityProps;
 
 function Choice({ text, active = false, isFirst = false, isLast = false, ...rest }: ChoiceProps) {
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <TouchableOpacity
       className={clsx("flex-grow items-center border border-blue-800 py-1", {

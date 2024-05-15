@@ -1,5 +1,8 @@
 import { Text, View, TouchableOpacity } from "react-native";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 type TicketProps = {
   type: string;
   quantity: number;
@@ -8,6 +11,7 @@ type TicketProps = {
 }
 
 export function Ticket({ id, type, quantity, useTicket }: TicketProps) {
+  const {theme, setTheme} = useContext(DarkModeContext);
   return (
     <View className="p-7 border border-blue-800 rounded-md bg-white w-full mt-4 flex-row justify-between items-center" >
       <View className="gap-4">

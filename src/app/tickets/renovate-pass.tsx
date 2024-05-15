@@ -6,7 +6,11 @@ import { Steps } from "../components/steps";
 import { passes } from "@/utils/passes";
 import dayjs from "dayjs";
 
+import { useContext } from 'react';
+import { DarkModeContext } from '../contexts/theme';
+
 export default function RenovatePass() {
+  const {theme, setTheme} = useContext(DarkModeContext);
   const { id } = useLocalSearchParams();
   const pass = passes.find(pass => pass.id === id)!;
   const diff = dayjs(pass.expireDate).diff(dayjs(), 'days');
