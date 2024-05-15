@@ -48,7 +48,12 @@ export default function RenovatePass() {
           </View>
           <View className="flex-row gap-2 items-center">
             <Text className="font-bold text-xl text-slate-800">Validade: </Text>
-            <Text className="font-regular text-xl text-slate-800">{pass.expireDate} ({diff} dias)</Text>
+            {
+              diff < 0 ?
+                <Text className="font-regular text-xl text-slate-800">{pass.expireDate} (expirou)</Text>
+                :
+                <Text className="font-regular text-xl text-slate-800">{pass.expireDate} ({diff} dias)</Text>
+            }
           </View>
           <View className="flex-row gap-2 items-center">
             <Text className="font-bold text-xl text-slate-800">Renova até: </Text>

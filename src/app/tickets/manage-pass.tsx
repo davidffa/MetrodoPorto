@@ -1,5 +1,6 @@
 import { passes } from "@/utils/passes";
 import { Feather } from "@expo/vector-icons";
+import clsx from "clsx";
 import dayjs from "dayjs";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { View, Text } from "react-native";
@@ -40,7 +41,12 @@ export default function ManagePass() {
           </View>
           <View className="flex-row gap-2 items-center">
             <Text className="font-bold text-xl text-slate-800">Validade: </Text>
-            <Text className="font-regular text-xl text-slate-800">{pass.expireDate} ({diff} dias)</Text>
+            {
+              diff >= 0 ?
+                <Text className="font-regular text-xl text-slate-800">{pass.expireDate} ({diff} dias)</Text>
+                :
+                <Text className="font-regular text-xl text-slate-800">{pass.expireDate} (expirou)</Text>
+            }
           </View>
           <View className="flex-row gap-2 items-center">
             <Text className="font-bold text-xl text-slate-800">Ultimo uso: </Text>
@@ -53,7 +59,9 @@ export default function ManagePass() {
               Renovar
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity className="bg-blue-800 px-5 py-2 rounded-md flex-1" onPress={usePass}>
+          <TouchableOpacity className={clsx("bg-blue-800 px-5 py-2 rounded-md flex-1", {
+            "opacity-50": diff < 0
+          })} onPress={usePass} disabled={diff < 0}>
             <Text className="font-bold text-white text-2xl text-center">
               Usar
             </Text>
