@@ -48,7 +48,7 @@ export default function Tickets() {
               (
                 <>
                   <Text
-                    className="py-2 active:color-slate-300 text-center justify-items-center items-center text-blue-400 underline" onPress={() => router.push({ pathname: "./more/recuperar" })}>
+                    className="py-2 active:color-slate-300 text-center justify-items-center items-center text-blue-400 underline" onPress={() => router.push({ pathname: "/tickets/recuperar" })}>
                     Recuperar passes
                   </Text>
                   {
