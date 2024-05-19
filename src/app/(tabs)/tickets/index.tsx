@@ -3,9 +3,9 @@ import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { Ticket } from "../components/ticket";
-import { Passe } from "../components/passe";
-import { SwitchChoice } from "../components/switchchoice";
+import { Ticket } from "@/app/components/ticket";
+import { Passe } from "@/app/components/passe";
+import { SwitchChoice } from "@/app/components/switchchoice";
 import { passes } from "@/utils/passes";
 
 export default function Tickets() {

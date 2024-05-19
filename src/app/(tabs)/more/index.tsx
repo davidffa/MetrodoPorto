@@ -2,7 +2,7 @@ import { Feather } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { Linking } from "react-native";
-import { MoreOption } from "../components/more-option";
+import { MoreOption } from "@/app/components/more-option";
 
 export default function More() {
   const router = useRouter();

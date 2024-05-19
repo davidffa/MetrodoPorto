@@ -1,9 +1,9 @@
 import { Feather } from "@expo/vector-icons";
 import { Alert, Text, View } from "react-native";
-import { Steps } from "../components/steps";
+import { Steps } from "@/app/components/steps";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { PaymentOption } from "../components/payment-option";
-import { PayButton } from "../components/pay-button";
+import { PaymentOption } from "@/app/components/payment-option";
+import { PayButton } from "@/app/components/pay-button";
 import { useState } from "react";
 import { paymentMethods } from "@/utils/payment-methods";
 

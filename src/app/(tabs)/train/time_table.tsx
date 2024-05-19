@@ -1,8 +1,8 @@
 import { Text, View } from "react-native";
-import { LineName, Line } from "../components/linename";
+import { LineName, Line } from "@/app/components/linename";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { SwitchChoice } from "../components/switchchoice_lines";
-import { TableTimer } from "../components/table_timer";
+import { SwitchChoice } from "@/app/components/switchchoice_lines";
+import { TableTimer } from "@/app/components/table_timer";
 import { clsx } from "clsx";
 import { dias_uteis_frequencia, dias_uteis_horas, feriados_frequencia, feriados_horas, partidas_primeira, partidas_ultima, partidas_stations } from "@/utils/tables";
 import { ScrollView } from "react-native";

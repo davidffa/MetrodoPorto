@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { View, Text, ScrollView, TouchableOpacity, Alert, TextInput } from "react-native";
-import { FormInput } from '../components/form-input';
+import { FormInput } from '@/app/components/form-input';
 
 const NAME_REGEX = /^[a-zA-Z ]+$/;
 const PHONE_REGEX = /^[\d]{9}$/;

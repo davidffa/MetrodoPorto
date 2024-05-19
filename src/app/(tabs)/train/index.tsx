@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { LineName, Line } from "../components/linename";
+import { LineName, Line } from "@/app/components/linename";
 import { useRouter } from "expo-router";
 
 const lines: Line[] = ['A', 'B', 'C', 'D', 'E', 'F']

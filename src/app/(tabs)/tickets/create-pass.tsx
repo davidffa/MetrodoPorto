@@ -5,9 +5,9 @@ import { View, Text, ScrollView, TouchableOpacity, Alert } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import * as DocumentPicker from "expo-document-picker";
 
-import { Steps } from "../components/steps";
-import { NextButton } from "../components/next-button";
-import { FormInput } from '../components/form-input';
+import { Steps } from "@/app/components/steps";
+import { NextButton } from "@/app/components/next-button";
+import { FormInput } from '@/app/components/form-input';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const NAME_REGEX = /^[a-zA-Z ]+$/;

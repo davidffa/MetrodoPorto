@@ -1,8 +1,8 @@
 import { View } from "react-native";
-import { Line, LineName } from "../components/linename";
+import { Line, LineName } from "@/app/components/linename";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { SwitchChoice } from "../components/switchchoice_lines";
-import { StationLines } from "../components/stations-lines";
+import { SwitchChoice } from "@/app/components/switchchoice_lines";
+import { StationLines } from "@/app/components/stations-lines";
 
 export default function StationTrain() {
   const params = useLocalSearchParams();

@@ -2,7 +2,7 @@ import { usedTickets } from "@/utils/used-tickets";
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { FlatList, Text, View } from "react-native";
-import { UsedTicket } from "../components/used-ticket";
+import { UsedTicket } from "@/app/components/used-ticket";
 
 export default function TicketHistory() {
   const router = useRouter();
@@ -12,7 +12,7 @@ export default function TicketHistory() {
 
     const zone = usedTicket.type.split(" ").pop()!;
 
-    router.push({ pathname: '/buy-ticket/confirm-ticket', params: { zone } })
+    router.push({ pathname: '/(index)/confirm-ticket', params: { zone } })
   }
 
   return (

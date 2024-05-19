@@ -1,7 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { View, Text, TouchableOpacity, Alert, ScrollView, TextInput } from "react-native";
-import { FormInput } from '../components/form-input';
+import { FormInput } from '@/app/components/form-input';
 import { useEffect, useRef, useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import clsx from "clsx";

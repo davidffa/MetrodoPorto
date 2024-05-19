@@ -6,7 +6,7 @@ export function Header() {
   const router = useRouter();
 
   function goHome() {
-    router.push("/buy-ticket/");
+    router.replace("/(index)/");
   }
 
   return (

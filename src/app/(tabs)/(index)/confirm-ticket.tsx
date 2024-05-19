@@ -72,7 +72,7 @@ export default function ConfirmTicket() {
           </View>
         </View>
 
-        <NextButton onPress={() => router.push({ pathname: "/buy-ticket/pay", params: { total: total.toFixed(2) } })} />
+        <NextButton onPress={() => router.push({ pathname: "/(index)/pay", params: { total: total.toFixed(2) } })} />
       </View>
     </View>
   );

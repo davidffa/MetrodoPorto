@@ -2,7 +2,7 @@ import { Feather } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native";
-import { Steps } from "../components/steps";
+import { Steps } from "@/app/components/steps";
 import { passes } from "@/utils/passes";
 import dayjs from "dayjs";
 

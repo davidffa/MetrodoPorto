@@ -1,4 +1,4 @@
-import { Dropdown } from "../components/drop-down";
+import { Dropdown } from "@/app/components/drop-down";
 import { View, Text, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 import { Feather } from "@expo/vector-icons";

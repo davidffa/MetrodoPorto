@@ -1,7 +1,6 @@
 import { Text, View } from "react-native";
-import { Steps } from "../components/steps";
-import { LocationInput } from "../components/location-input";
-import { NextButton } from "../components/next-button";
+import { LocationInput } from "@/app/components/location-input";
+import { NextButton } from "@/app/components/next-button";
 import { useState } from "react";
 import MapView from "react-native-maps";
 import { useRouter } from "expo-router";
@@ -13,7 +12,7 @@ export default function Home() {
   const router = useRouter();
 
   function goNext() {
-    router.push({ pathname: '/buy-ticket/confirm-ticket', params: { zone: 'Z2' } });
+    router.push({ pathname: '/(index)/confirm-ticket', params: { zone: 'Z2' } });
   }
 
   return (
