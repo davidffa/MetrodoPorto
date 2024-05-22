@@ -1,6 +1,6 @@
 # Metro do Porto
 
-Aplicação mobile para compra de bilhetes e subscrição de passes para o metro do Porto. \\
+Aplicação mobile para compra de bilhetes e subscrição de passes para o metro do Porto. \
 Aplicação desenvolvida no âmbito da unidade curricular [Interação Humano-Computador](https://www.ua.pt/pt/uc/2484) da [Universidade de Aveiro](https://www.ua.pt/)
 
 ## Setup
